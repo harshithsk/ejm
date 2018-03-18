@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls.conf import path
 from baseportal.views import HomePageView, TrackView, AboutUsView, ShowJournalView, SearchJournal, ListVolumeView, \
-    ShowVolumeView
+    ShowVolumeView, RulesAuthorView, RulesReviewerView, EditorialTeamView
 
 app_name='baseportal'
 
@@ -27,4 +27,7 @@ urlpatterns = [
     path('listvolume', ListVolumeView.as_view(), name="listvolume"),
     path('showvolume/<int:volumeid>', ShowVolumeView.as_view(), name="showvolume"),
     path('search', SearchJournal.as_view(), name='search'),
+    path('rules/author', RulesAuthorView.as_view(), name='rulesauthor'),
+    path('rules/reviewer', RulesReviewerView.as_view(), name='rulesreviewer'),
+    path('editorial', EditorialTeamView.as_view(), name='editorialteam'),
 ]

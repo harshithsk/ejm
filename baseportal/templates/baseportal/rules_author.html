@@ -1,0 +1,69 @@
+  {% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+<!-- Our Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/aboutusStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+{% endblock %}
+      {% block title %} NMAM Institute of Technology Research Journal | About Us {% endblock %}
+
+      	{% block content %}
+        <div class="content-x">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1><u>Rules For Author</u></h1>
+                                <hr>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>The contributors are expected to highlight their research work with sufficient details & discussion of results.</p>
+                                <p>The original research paper should be limited to 6 and short communication to 3 printed pages of the
+                                journal in double column standard IEEE format. Please refer to IEEE website for the standard format.</p>
+                                <p>Manuscripts must be submitted in both hard and soft copy (in a CD) to the Editor-in-Chief, Annual
+                                Research Journal, NMAM Institute of Technology,Nitte-574110, Udupi District, Karnataka.Enough precaution should be taken to make the manuscript error free.</p>
+                                <p>The papers that are not in the standard format may be rejected Submission of an article implies that the work described has not been published previously (except in the form of an abstract or as part of a published lecture or academic thesis), that it is not under consideration for publication elsewhere, that its publication is approved by all authors and tacitly or explicitly by the responsible authorities where the work was carried out.</p>
+                                <p>Authors of the selected papers have to send the final camera ready paper (both in MS Word &PDF) for final print After the review process, the selected papers will be published in the Journal.</p>
+                            </div>
+                            <hr class="col-sm-12">
+                            <div class="col-sm-12">
+                                <h3><u>Article structure</u></h3>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>1) Subdivision - numbered sections</h4>
+                                <p>Subdivision - numbered sections Divide your article into clearly defined and numbered sections. Subsections should be numbered 1.1 (then 1.1.1, 1.1.2, ...), 1.2, etc. (the abstract is not included in section numbering). Use this numbering also for internal crossreferencing: do not just refer to 'the text'. Any subsection may be given a brief heading. Each heading should appear on its own separate line.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>2) Introduction</h4>
+                                <p>State the objectives of the work and provide an adequate background, avoiding a detailed literature survey or a summary of the results.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>3) Material and methods</h4>
+                                <p>Provide sufficient detail to allow the work to be reproduced. Methods already published should be indicated by a reference: only relevant modifications should be described.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>4) Theory/calculation</h4>
+                                <p>A Theory section should extend, not repeat, the background to the article already dealt with in the Introduction and lay the foundation for further work. In contrast, a Calculation section represents a practical development from a theoretical basis.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>5) Results</h4>
+                                <p>Results should be clear and concise.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>6) Discussion</h4>
+                                <p>This should explore the significance of the results of the work, not repeat them. A combined Results and Discussion section is often appropriate. Avoid extensive citations and discussion of published literature.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>7) Conclusion</h4>
+                                <p>The main conclusions of the study may be presented in a short Conclusions section, which may stand alone or form a subsection of a Discussion or Results and Discussion section.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4>8) Appendices</h4>
+                                <p>If there is more than one appendix, they should be identified as A, B, etc. Formulae and equations in appendices should be given separate numbering: Eq. (A.1), Eq. (A.2), etc.; in a subsequent appendix, Eq. (B.1) and so on. Similarly for tables and figures: Table A.1; Fig. A.1, etc.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+	{% endblock %}

@@ -1,0 +1,25 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+<!-- Our Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/aboutusStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+{% endblock %}
+{% block title %} NMAM Institute of Technology Research Journal | Editorial {% endblock %}
+
+{% block content %}
+<div class="content-x" style="height: 50%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1><u>Editorial</u></h1>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END - CONTENT -->
+{% endblock %}

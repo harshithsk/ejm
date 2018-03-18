@@ -86,7 +86,7 @@
 										</a>
 								</li>
 								<li>
-										<a href="editorialteam.html">
+										<a href="{% url 'baseportal:editorialteam' %}">
 												<img src="{% static 'images/meeting.png' %}" class="side-nav-icon">
 												Editorial Team
 										</a>
@@ -94,8 +94,8 @@
 						</ul>
 
 						<ul class="list-unstyled CTAs">
-								<li><a href="{% static 'rulesAuthor.html' %}" class="download">Guidlines for Author</a></li>
-								<li><a href="{% static 'rulesReviewer.html' %}" class="article">Guidlines for Reviewer</a></li>
+								<li><a href="{% url 'baseportal:rulesauthor' %}" class="download">Guidlines for Author</a></li>
+								<li><a href="{% url 'baseportal:rulesreviewer' %}" class="article">Guidlines for Reviewer</a></li>
 						</ul>
 				</nav>
 
