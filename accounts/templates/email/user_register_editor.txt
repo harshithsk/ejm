@@ -1,0 +1,10 @@
+{% load has_group %}
+A user with username {{user}} has registered.
+Visit admin interface to authorise the user.
+
+{% if user|has_group:"reviewer" %}
+Type: Reviewer
+{% endif %}
+{% if user|has_group:"author" %}
+Type: Author
+{% endif %}

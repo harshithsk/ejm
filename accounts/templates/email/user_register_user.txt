@@ -1,0 +1,9 @@
+{% load has_group %}
+Dear {{user.username}}
+Thank You for registering. Your account will be activated soon.
+{% if user|has_group:"reviewer" %}
+Type: Reviewer
+{% endif %}
+{% if user|has_group:"author" %}
+Type: Author
+{% endif %}
