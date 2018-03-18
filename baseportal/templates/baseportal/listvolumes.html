@@ -10,11 +10,12 @@
 {% for volume in volumes %}
 <div class="col-sm-3">
     <a href="{% url 'baseportal:showvolume' volumeid=volume.id %}">
+      {{volume}}
+    </a>
       {% for journal in volume.publishedjournal_set.all %}
           <a href="{% url 'baseportal:showjournal' journalslug=journal.slug %}">{{journal}}</a>
 
         </div>
-    </a>
 </div>
 {% endfor %}
 {% endfor %}
