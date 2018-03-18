@@ -1,0 +1,5 @@
+Reviewer Completed Review
+Paper: {{paper.title}}
+ID: {{paper.id}}
+Review: {{paperreview.}}
+Visit {{visiturl}}

@@ -1,0 +1,25 @@
+.md-form label{
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.margin-x{
+    margin-left: 2.5rem;
+}
+
+.row-x{
+    margin-top: 20px;
+}
+
+.signupbg{
+    height: 1vw;
+}
+
+.content-x .container form{
+    border: white 1px solid;
+    border-top-left-radius: 80px;
+    border-bottom-right-radius:  80px;
+    padding: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

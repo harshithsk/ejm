@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+<div class="content-x">
+		<a href="{% url 'paperreviewer:portal' %}"><img src="{% static 'images/left-blue.png' %}" class="back-button" alt="Reviewer Portal"></a>
+		<div class="container">
+			<form method="post">
+				{% csrf_token %}
+				<div class="row row-x">
+						<div class="col-xs-8">
+								<h1 class="counter-text margin-x h4 mb-4"><b>Review</b></h1>
+						</div>
+						<hr class="col-xs-11">
+						<div class="col-xs-8 row-x">
+								<div class="md-form">
+										<i class="fa fa-user prefix grey-text"></i>
+										{% render_field form.review_status class="comboBoxOne" %}{{ form.review_status.errors }}
+								</div>
+						</div>
+
+						<div class="col-xs-8 row-x">
+								<div class="md-form">
+										{% render_field form.comments_to_author id="textareaBasic" class="form-control md-textarea" rows="3" %}{{ form.comments_to_author.errors }}
+										<label for="textareaBasic">Comments to Author</label>
+								</div>
+						</div>
+
+						<div class="col-xs-8 row-x">
+								<div class="md-form">
+										{% render_field form.comments_to_editor id="textareaBasic" class="form-control md-textarea" rows="3" required="true" %}{{ form.comments_to_editor.errors }}
+										<label for="textareaBasic">Comments to Editor</label>
+								</div>
+						</div>
+
+						<div class="col-xs-8 row-x">
+								<div class="margin-x mt-4">
+									<input class="btn btn-primary" type="submit" value="Register" name=""/>
+									<input class="btn btn-danger" type="reset" value="Reset" name=""/>
+
+								</div>
+						</div>
+
+				</div>
+		</form>
+		</div>
+</div>
+{% endblock %}

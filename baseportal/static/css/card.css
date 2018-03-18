@@ -1,0 +1,25 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  text-align: center;
+  font-family: arial;
+}
+    
+.card:hover{
+   background: #cccdd0; 
+}
+
+.verticalSlidersImg{
+    height: 200px;
+    width: 180px;
+    padding: 10px;
+}
+    
+.card h2{
+   margin: 0px;     
+}
+
+.card p{
+    padding-top: 10px; 
+    padding-bottom: 10px;     
+}

@@ -1,0 +1,23 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+  <link rel="stylesheet" href={% static 'style/searchResultBoxStyle.css' %}>
+{% endblock %}
+	{% block content %}
+  <div class="content-x">
+      <div class="container">
+          <div class="row">
+{% for volume in volumes %}
+<div class="col-sm-3">
+    <a href="{% url 'baseportal:showvolume' volumeid=volume.id %}">
+      {% for journal in volume.publishedjournal_set.all %}
+          <a href="{% url 'baseportal:showjournal' journalslug=journal.slug %}">{{journal}}</a>
+
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endfor %}
+
+        </div>
+    </div>              {% endblock %}

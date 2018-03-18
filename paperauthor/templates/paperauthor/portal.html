@@ -1,0 +1,43 @@
+ {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-x">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Hello! <b><i>{{user.username}}</i></b></h1>
+                <h5>Role: <b><i>{{user.user_type}}</i></b></h5>
+                <hr>
+            </div>
+            <div class="col-sm-12">
+                <a href="{% url 'paperauthor:addpaper' %}" class="add-paper-x btn btn-warning"><img src="{% static 'images/edit.png' %}" class="margin-right-x">Add Paper</a>
+
+                <table class="blue-grey lighten-4 table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Paper Title</th>
+                            <th>Status</th>
+                            <th width="30">Details</th>
+                            <th width="40">Track</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for el in papers %}
+                        <tr>
+                            <td>1</td>
+                            <td>{{el.title}}</td>
+                            <td>{{el.review_status}}</td>
+                            <td><a href="{% url 'paperauthor:showpaper' paperslug=el.slug %}" class="btn btn-primary">Details</a></td>
+                            <td><a href="{% url 'baseportal:track' %}?id={{el.track_id}}" class="btn btn-success">Track</a></td>
+                        </tr>
+                        	{% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

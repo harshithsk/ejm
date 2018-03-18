@@ -1,0 +1,84 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+	<link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+	<link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+	<link rel="stylesheet" href="{% static 'css/trackStyle.css' %}">
+	<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+
+  {% endblock %}
+{% block content %}
+<div class="content-x">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Track Your Paper</h1>
+                <hr>
+            </div>
+        </div>
+        <form method="get">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class='trackSearchInput'>
+                        <input type='search' placeholder='What you tracking for?' name='id' required>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+		     <button class='trackSearchButton'  style="background: #0080ff; border: none;" type="submit"><img src="{% static 'images/searchIconWhite.png' %}" class="searchIcon"></button>
+                  </div>
+            </div>
+        </form>
+        {% if showerror == True %}
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="{% static 'images/brokenRobot.png' %}" class="errorimg">
+                <h1>No Results Found! for "{{ track_id }}"</h1>
+                <h3>Try Again!</h3>
+            </div>
+        </div>
+        {% elif showtrack == True %}
+         <p>Your Tracking ID is <b><u>'{{ track_id }}'</u></b></p>
+         <p>Paper Name : <b><u>{{ paper.title }}</u></b></p>
+        <div class="row">
+            <div class="timeline-x col-sm-12">
+                <ul class="timeline">
+                    <!-- Item 1 -->
+                    {% if trackstatus >= 0 %}
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag">Submitted for Review</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    {% endif %}
+                    {% if trackstatus >= 1 %}
+                    <!-- Item 2 -->
+                    <li>
+                      <div class="direction-l">
+                        <div class="flag-wrapper">
+                          <span class="flag">Reviewer Assigned</span>
+                        </div>
+                      </div>
+                    </li>
+                    {% endif %}
+                    {% if paper.review_complete %}
+                    <!-- Item 3 -->
+                    <li>
+                      <div class="direction-r">
+                        <div class="flag-wrapper">
+                          <span class="flag">Review Complete</span>
+                        </div>
+                        <div class="desc"> {{ paper.review_status }}</div>
+                      </div>
+                    </li>
+                     {% endif %}
+                       {% endif %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

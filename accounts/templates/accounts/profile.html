@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load has_group %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+{% endblock %}
+{% block content %}
+<div class="content-x" style="height: 50%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><u>Profile</u></h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="container target">
+                    <div class="row">
+                        <div class="col-sm-10">
+                             <h1 class="">Dear {{user.username}},</h1>
+                             {% if user.is_superuser %}
+
+                               <a class="btn btn-info" href="{% url 'admin:index' %}">Admin Portal</a>
+
+                             {% endif %}
+                             {% if user|has_group:"author" %}
+
+                               <a class="btn btn-info" href="{% url 'paperauthor:portal' %}">Author Portal</a>
+                                <== Submit New Papers Here
+                             {% endif %}
+                             {% if user|has_group:"reviewer" %}
+
+                               <a class="btn btn-info" href="{% url 'paperreviewer:portal' %}">Reviewer Portal</a>
+                                <== Review Papers Here
+                             {% endif %}
+
+                            <br>
+                        </div>
+                      <div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="{% static 'images/boy.png' %}"></a>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <!--left col-->
+                            <ul class="list-group">
+                                <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> 2.13.2014</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class=""><a href="{% url 'accounts:password_change' %}" ><img src="{% static 'images/editPencil.png' %}"></strong></span>Change Password</a></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> {{user.username}}</li>
+                              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span> Author</li>
+                            </ul>
+
+                            <ul class="list-group">
+                                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i>
+
+                                </li>
+                              
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Posts</strong></span> 37</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Followers</strong></span> 78</li>
+                            </ul>
+                        </div>
+                        <!--/col-3-->
+                        <div class="col-sm-9" style="" contenteditable="false">
+                            <div class="panel panel-default target">
+                                <div class="panel-heading" contenteditable="false">Papers I Own</div>
+                                <div class="panel-body">
+                                  <div class="row">
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
+                                        <div class="caption">
+                                            <h3>
+                                                Rover
+                                            </h3>
+                                            <p>
+                                                Cocker Spaniel who loves treats.
+                                            </p>
+                                            <p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
+                                        <div class="caption">
+                                            <h3>
+                                                Marmaduke
+                                            </h3>
+                                            <p>
+                                                Is just another friendly dog.
+                                                asdsad
+                                            </p>
+                                            <p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
+                                        <div class="caption">
+                                            <h3>
+                                                Rocky
+                                            </h3>
+                                            <p>
+                                                Loves catnip and naps. Not fond of children.
+                                            </p>
+                                            <p>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div id="push"></div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

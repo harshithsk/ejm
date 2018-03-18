@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- [if lt IE 9]>
+        <script type="text/javascript">
+            consoloe.log("does not support");
+            windows.loaction.href="browserSupport.html";
+        </script>
+        
+        <!-- START - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        <script type="text/javascript" src="scripts/browserSupport.js"></script>
+        <!-- END - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        
+        <!-- START - INITIAL INCLUDES -->
+        <meta charset="utf-8">
+        <link rel="icon" href="images/nitteUniversityIconBlue.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/layoutReset.css">
+        <link rel="stylesheet" href="style/loginContentBoxStyle.css">
+        <link rel="stylesheet" href="style/buttons.css">
+        <link rel="stylesheet" href="style/textbox.css">     
+        <!-- END - INITIAL INCLUDES -->
+        
+        <!-- START - TITLE -->
+        <title> E-Journal | Login </title>
+        <!-- END - TITLE -->
+        
+    </head>
+    <body bgcolor="#e1e1e1">
+        <div class="loginBox">
+            <div class="loginHeader">Login</div>
+            <form action="#" method="post">
+                <div class="upperPart">
+                    <div class="usernameLabel label"><label>Username</label></div>
+                    <div class="inputUsername"><input type="text" name="#" size="100" class="textboxOne"></div>
+                    <div class="passwordLabel label"><label>Password</label></div>
+                    <div class="inputPassword"><input name="#" type="password" size="100" class="textboxOne"></div>
+                    <div class="keepMeLogin"><input name="#" type="checkbox"><label>Keep me Logined</label></div>
+                    <div class="forgotPasswordAndSignUp">
+                        <a href="#" class="forgotPassowrd">Forgot Password ?</a>
+                        <a href="register.html" class="signUp">Not yet Signed Up ?</a>
+                    </div>
+                </div>
+                <br>
+                <div class="lowerPart">
+                    <input name="#" type="submit" class="button" value="Login">
+                    <br>
+                    <input name="#" type="reset" class="button" value="Reset">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

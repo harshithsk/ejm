@@ -1,0 +1,20 @@
+{% load has_group %}
+Dear {{user.username}},
+Day Regards,
+Welcome to NMAMIT Research Journal, Your Account has been activated. Now you are part of our Family.
+Our Team NMAMIT Research Journal is looking forward to work with you.
+We have some guidlines that need to be followed. You can get them using link provided below.
+{LINK HERE}
+Or, Directly Login Here
+{LOGIN LINK}
+{% if user|has_group:"author" %}
+Submit New Paper here {{authorurl}}
+{% endif %}
+{% if user|has_group:"reviewer" %}
+Review Here {{reviewurl}}
+Once again, Welcome to NMAMIT Research Journal, Let us know if you have any Queries.
+
+Sincerely,
+
+Team NMAMIT Research Journal.
+{% endif %}

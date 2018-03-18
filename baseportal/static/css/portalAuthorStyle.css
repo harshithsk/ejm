@@ -1,0 +1,17 @@
+table thead tr th{
+    font-size: 1.5em;
+}
+
+table tbody tr td{
+    font-size: 1.2em;   
+}
+
+.btn{
+    border-radius: 7px;
+    border: white 0px solid;
+    font-size: 0.6em;
+}
+
+.add-paper-x{
+    font-size: 1em;
+}

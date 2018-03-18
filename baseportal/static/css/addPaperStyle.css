@@ -1,0 +1,23 @@
+.file-field{
+    font-size: 1.3em;   
+}
+
+.file-text-x{
+    font-size: 2em; 
+}
+
+.textarea-x{
+    border-bottom: #ced4da 1px solid;
+}
+
+.md-form .prefix~label{
+    margin-left: 0px;
+}
+
+.md-form .prefix~input, .md-form .prefix~textarea{
+    margin-left: 0px;
+}
+
+.margin-x{
+    margin-left: 0px;
+}

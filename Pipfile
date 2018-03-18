@@ -1,0 +1,22 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+
+
+[packages]
+
+django = "*"
+django-sendfile = "*"
+django-slugger = "*"
+django-widget-tweaks = "*"
+pillow = "*"
+djangorestframework = "*"
+django-filter = "*"
+drf-writable-nested = "*"
+django-crispy-forms = "*"

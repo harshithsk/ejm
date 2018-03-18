@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block path %} HOME &gt; VIEW PAPER {%endblock %}
+{% block content %}
+<div class="inside">
+
+    <h1 class="welcomeName"> Paper: <b> {{paper}}</b></h1>
+    <!--<p>Resubmission: {{paper.is_resubmission}}</p>-->
+    <p class="welcomeName"><b>Track id : </b>{{paper.track_id}}<button>Copy</button></p><br>
+    {% if paper.reviewer is None %}
+      <h3 class="welcomeName">Reviewer Not Assigned. Contact Admin.</h3>
+    {% elif paper.review_complete is False %}
+      <h3 class="welcomeName">Paper not yet reviewed</h3>
+    {% else %}
+      <h3 class="welcomeName"> Status: {{paper.review_status}}</h3>
+     <h3 class="welcomeName"> File Name:   {{paper.upload}} </h3>
+       <h3 class="welcomeName"><b>Suggestion by Editorial Team : - </b></h3><br> <p class="welcomeName">{{paper.paperreview.final_comments_to_author}}</p><br><br>
+      <p class="welcomeName"><a class="button" href="{% url 'paperauthor:annotate' %}?file={% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Open in E-Document</a>
+        <a class="button" href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Download</a>
+    {% endif %}
+    {% if paper.is_resubmission %}
+      <a class="button" href="{% url 'paperauthor:downloadsuggestedcorrections' paperslug=paper.slug %}">
+        Suggested Correction
+      </a>
+      <a class="button" href="{% url 'paperauthor:downloadperformedcorrections' paperslug=paper.slug %}">
+        Performed Correction
+      </a>
+    {% endif %}
+    {% if paper.is_resubmittable %}
+      <a class="button" href="{% url 'paperauthor:resubmitpaper' paperslug=paper.slug %}">Resubmit</a>
+    {% endif %}</p><br>
+</div>
+{% endblock %}

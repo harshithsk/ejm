@@ -1,0 +1,4 @@
+Paper : {{paper.title}}
+ID: {{paper.id}}
+{{reviewer}} has accepted review request.
+Visit {{visiturl}}

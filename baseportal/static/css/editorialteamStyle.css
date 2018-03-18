@@ -1,0 +1,14 @@
+.dev-pic-x{
+    border-radius: 1000px;
+    width: 200px;
+    height: 200px;
+}
+
+.content-x .container{
+    border: white 1px solid;
+    border-top-left-radius: 80px;
+    border-bottom-right-radius:  80px;
+    padding: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

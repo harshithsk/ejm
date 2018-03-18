@@ -1,0 +1,23 @@
+.content-x{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.opt-x-left{
+    border-bottom: #eee 2px solid;
+}
+
+.opt-x-right{
+    border-bottom: #eee 2px solid;
+}
+
+.opt-x-left:hover{
+    background-color: #7aa7fb; 
+    color: #FFFFFF;
+    border-bottom: #eee 0px solid;
+}
+
+.opt-x-right:hover{
+    background-color: #e46969;
+    color: #FFFFFF;
+    border-bottom: #eee 0px solid;
+}

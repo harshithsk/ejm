@@ -1,0 +1,89 @@
+{% extends  'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/registerStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+{% endblock %}
+	{% block content %}
+  <!-- START - CONTENT -->
+  <div class="content-x">
+      <div class="container">
+      <form method="post">
+          {% csrf_token %}
+          <div class="row row-x">
+              <div class="col-xs-8">
+                  <p>{{form.non_field_errors}}</p>
+                  <p class="counter-text margin-x h4 mb-4">Sign up</p>
+              </div>
+          <hr class="col-xs-11">
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-user prefix grey-text"></i>
+                      {% render_field form.first_name id="materialFormRegisterNameEx" class="form-control" %}{{ form.first_name.errors }}
+                      <label for="materialFormRegisterNameEx">First Name</label>
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-user prefix grey-text"></i>
+                      {% render_field form.last_name id="materialFormRegisterNameEx" class="form-control" %}{{ form.last_name.errors }}
+                      <label for="materialFormRegisterNameEx">Last Name</label>
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-envelope prefix grey-text"></i>
+                      {% render_field form.email id="materialFormRegisterEmailEx" class="form-control" %}{{ form.email.errors }}
+                      <label for="materialFormRegisterEmailEx">Email</label>
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-user prefix grey-text"></i>
+                      {% render_field form.username id="materialFormUsernameEx" class="form-control" %}{{ form.username.errors }}
+                      <label for="materialFormRegisterNameEx">Username</label>
+                  </div>
+              </div>
+
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-lock prefix grey-text"></i>
+                      {% render_field form.password1 id="materialFormRegisterPasswordEx" class="form-control" %}{{ form.password1.errors }}
+                      <label for="materialFormRegisterPasswordEx">Password</label>
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-lock prefix grey-text"></i>
+                      {% render_field form.password2 id="materialFormRegisterConfirmEx" class="form-control" %}{{ form.password2.errors }}
+                      <label for="materialFormRegisterPasswordEx">Confirm Password</label>
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="md-form">
+                      <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                      {% render_field form.user_type class="comboBoxOne" %}{{ form.user_type.errors }}
+                  </div>
+              </div>
+
+              <div class="col-xs-8 row-x">
+                  <div class="margin-x mt-4">
+                      <input type="submit" class="btn btn-primary" value="Register">
+                  </div>
+              </div>
+          </div>
+      </form>
+      </div>
+  </div>
+
+            <!-- END - REGISTER FORM-->
+
+                    {% endblock %}

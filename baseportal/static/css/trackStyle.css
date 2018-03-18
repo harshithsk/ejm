@@ -1,0 +1,44 @@
+.trackSearchButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    height: 45px;
+    background-color: #fd033a;
+    font-weight: bold;  
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: Roboto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.trackSearchInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Roboto;
+}
+
+.searchIcon{
+    width: 45px;
+    padding: 9px;
+    text-align: center;
+}
+
+.searchIcon:hover{
+    width: 46px;
+    padding: 9px;
+    text-align: center;
+}
+
+.trackSearchInput input[type="search"]{
+    width: 105%;
+    height: 45px;
+    border: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.content-x{
+    min-height: 50%;
+}

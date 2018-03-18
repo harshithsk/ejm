@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- [if lt IE 9]>
+        <script type="text/javascript">
+            consoloe.log("does not support");
+            windows.loaction.href="browserSupport.html";
+        </script>
+        
+        <!-- START - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        <script type="text/javascript" src="scripts/browserSupport.js"></script>
+        <!-- END - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        
+        <!-- START - INITIAL INCLUDES -->
+        <meta charset="utf-8">
+        <link rel="icon" href="images/nitteUniversityIconBlue.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/layoutReset.css">
+        <link rel="stylesheet" href="style/layout.css">
+        <link rel="stylesheet" href="style/leftNavigationStyle.css">
+        <link rel="stylesheet" href="style/topNavigationStyleMobile.css">
+        <link rel="stylesheet" href="style/topNavigationStyle.css"> 
+        <link rel="stylesheet" href="style/registerContentBoxStyle.css">
+        <link rel="stylesheet" href="style/footerStyle.css">
+        <link rel="stylesheet" href="style/buttons.css">
+        <link rel="stylesheet" href="style/textbox.css">
+        <link rel="stylesheet" href="style/fontAwesome.min.css">
+        <link rel="stylesheet" href="style/searchBoxStyle.css">
+        <link rel="stylesheet" href="style/searchBoxStyleMobile.css">
+        <!-- END - INITIAL INCLUDES -->
+        
+        <!-- START - TITLE -->
+        <title> E-Journal | Register </title>
+        <!-- END - TITLE -->
+        
+    </head>
+    <body class="body" bgcolor="#e1e1e1">
+        
+        <!-- START - LEFT SIDE NAVIGATION BAR -->
+        <div class="leftNavigation">
+            
+            <!-- START - LOGO -->
+            <div class="leftNavigationLogo" title="E-Journal">
+                <img src="images/nitteUniversity.png">
+            </div>
+            <!-- END - LOGO -->
+            
+            <!-- START - SEARCH BOX -->
+            <div class="searchBox">  
+                <div class='searchInput'>
+                    <input type='search' placeholder='What you looking for?'>
+                </div>
+                <div class='searchButton'><img src="images/searchIconWhite.png" class="searchIcon"></div>
+            </div>
+            <!-- END - SEARCH BOX -->
+            
+            <!-- START - MENU OPTIONS -->
+            <ul class="leftNavigationMenuOptions">
+                <a href="index.html"><li class="leftOptionOne"><span class="leftNavEmojis"><img src="images/nitteUniversityIcon.png"></span><span>HOME</span></li></a>
+                
+                <a href="register.html"><li class="leftOptionTwo" style="border-right: solid 8px white;background: #fd033a;"><span class="leftNavEmojis"><img src="images/note.png"></span><span>REGISTER</span></li></a>
+                
+                <a href="track.html"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="images/route.png"></span><span>TRACK</span></li></a>
+                
+                <a href="login.html"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="images/login.png"></span><span>LOGIN</span></li></a>
+                
+                <a href="aboutus.html"><li class="leftOptionFour"><span class="leftNavEmojis"><img src="images/about-us.png"></span><span>ABOUT US</span></li></a>
+            </ul>
+            <!-- END - MENU OPTIONS -->
+            
+        </div>
+        <!-- END - LEFT SIDE NAVIGATION BAR -->
+        
+        <!-- START - MAIN CONTENT BOX -->
+        <div class="mainContentBox">
+            
+            <!-- START - TOP NAVIGATION BAR -->
+            <div class="topNavigation">
+                
+                <!-- START - PATH BAR -->
+                <div class="topNavigationPath" title="Current Path">Ejournal &gt; Register</div>
+                <!-- END - PATH BAR -->
+                
+                <!-- START - MENU BOX -->
+                <ul class="topNavigationMenu">
+                    <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="images/facebook-logo.png"></div></li>
+                    <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="images/twitter-logo.png"></div></li>
+                    <li class="topOptionThree" title="Admin"  onclick="toggleAdminBox();"><div class="topNavEmojis"><img src="images/linkedin.png"></div></li>
+                </ul>
+                <!-- END - MENU BOX -->
+                
+            </div>
+            
+            <!-- START - MOBILE MENU BOX -->
+            <div class="mobileTopNavigation">
+                <ul class="mobileTopNavigationMenu">
+                    <a href="index.html"><li><span class="topResponsiveNavEmojis"><img src="images/nitteUniversityIcon.png"></span><span>HOME</span></li></a>
+                
+                    <a href="register.html"><li><span class="topResponsiveNavEmojis"><img src="images/note.png"></span><span>REGISTER</span></li></a>
+                
+                    <a href="track.html"><li><span class="topResponsiveNavEmojis"><img src="images/route.png"></span><span>TRACK</span></li></a>
+                
+                    <a href="login.html"><li><span class="topResponsiveNavEmojis"><img src="images/login.png"></span><span>LOGIN</span></li></a>
+                
+                    <a href="aboutus.html"><li><span class="topResponsiveNavEmojis"><img src="images/about-us.png"></span><span>ABOUT US</span></li></a>
+                </ul>
+            </div>
+            <!-- END - MOBILE MENU BOX -->
+            
+            <!-- START - MOBILE SEARCH BOX -->
+            <div class="mobileSearchBox">
+                <div class='mobileSearchInput'>
+                    <input type='search' placeholder='What you looking for?'>
+                </div>
+                <div class='mobileSearchButton'><img src="images/searchIconWhite.png" class="mobileSearchIcon"></div>
+            </div>
+            <!-- END - MOBILE SEARCH BOX-->
+            
+            <!-- START - REGISTER FORM-->
+            <div class="registerContentBox">
+                <form action="#" method="post">
+                    <p class="registerContentBoxTitle">Fill in Details</p>
+                    <table cellspacing="10">
+                        <tr>
+                            <div class="registerData"><td><label class="registerContentBoxLabel" for="#">First Name: </label></td><td><input type="text" name="#" class="textboxOne"></td></div>
+                        </tr>
+                        
+                        
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <label class="registerContentBoxLabel" for="#">Last Name: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="#" class="textboxOne">
+                                </td>
+                            </div>
+                        </tr>
+                        
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <label class="registerContentBoxLabel" for="#">Email: </label>
+                                </td>
+                                <td>
+                                    <input type="email" name="#" class="textboxOne">
+                                </td>
+                            </div>
+                        </tr>    
+                         
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <label class="registerContentBoxLabel" for="#">Phone: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="#" class="textboxOne">
+                                </td>
+                            </div>
+                        </tr>
+                        
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <label class="registerContentBoxLabel" for="#">Password: </label>
+                                </td>
+                                <td>
+                                    <input type="password" name="#" class="textboxOne">
+                                </td>
+                            </div>
+                        </tr>
+                        
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <label class="registerContentBoxLabel" for="#">Confirm Password: </label>
+                                </td>
+                                <td>
+                                    <input type="password" name="#" class="textboxOne">
+                                </td>
+                            </div>
+                        </tr>
+                        
+                        <tr>
+                        <div class="registerData">
+                            <td>
+                                <label class="registerContentBoxLabel" for="#">College / Institute: </label>
+                            </td>
+                            <td>
+                                <input type="text" name="#" class="textboxOne">
+                            </td>
+                        </div>
+                        </tr>
+                        
+                        <tr>
+                        <div class="registerData">
+                            <td>
+                                <label class="registerContentBoxLabel" for="#">About: </label>
+                            </td>
+                            <td>
+                                <input type="text" name="#" class="textboxOne">
+                            </td>
+                        </div>
+                        </tr>
+                        
+                        <tr>
+                            <div class="registerData">
+                                <td>
+                                    <input type="submit" class="button">
+                                </td>
+                                <td>
+                                    <input type="reset" class="button">
+                                </td>
+                            </div>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!-- END - REGISTER FORM-->
+            
+            <!-- END - TOP NAVIGATION BAR -->
+            
+            <!-- START - FOOTER -->
+            <div class="footer-distributed">
+                <div class="footer-left">
+				    <img src="images/nitteUniversity.png" class="footerLogo">
+				        <p class="footer-links">
+					       <a href="#">Home</a>
+					       |
+					       <a href="#">Register</a>
+					       |
+					       <a href="#">Track</a>
+                           |
+                           <a href="#">Login</a>
+					       |
+					       <a href="#">About Us</a>
+				        </p>
+				        <p class="footer-company-name">Nitte University &copy; 2017</p>
+			     </div>
+			     <div class="footer-center">
+				    <div>
+					   <i class="fa fa-map-marker"></i>
+					   <p><span>Deralkatte, Mangalore</span> Karnataka, India - 574110</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-phone"></i>
+					   <p>+91 987 654 3212</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-envelope"></i>
+					   <p><a href="mailto:nitte@nmamit.in">nitte@nmamit.in</a></p>
+				    </div>
+			     </div>
+			     <div class="footer-right">
+				    <p class="footer-company-about">
+					   <span>About the University</span>
+					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANIVAL, E and E, E and C , Phd.
+				    </p>
+				    <div class="footer-icons">
+					   <a href="#"><i class="fa fa-facebook"></i></a>
+					   <a href="#"><i class="fa fa-twitter"></i></a>
+					   <a href="#"><i class="fa fa-linkedin"></i></a>
+				    </div>
+			     </div>
+            </div>
+            <!-- START - FOOTER -->
+            
+        </div>
+        <!-- END - MAIN CONTENT BOX -->
+        
+    </body>
+</html>

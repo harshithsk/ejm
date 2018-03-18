@@ -1,0 +1,6 @@
+Review Complete
+{{paper.id}}
+{{paper.title}}
+Review is as follows
+{{paperreview.final_comments_to_author}}
+{{visiturl}}

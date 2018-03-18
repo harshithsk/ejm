@@ -1,0 +1,4 @@
+You have been selected as reviewer.
+Visit {{visiturl}} to accept or reject the request.
+Paper: {{paper}}
+ID: {{paper.id}}

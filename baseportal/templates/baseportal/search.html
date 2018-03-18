@@ -1,0 +1,39 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+  <link rel="stylesheet" href={% static 'style/searchResultBoxStyle.css' %}>
+{% endblock %}
+	{% block content %}
+  <div class="content-x">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <h1>Search Results "<i><u>{{keyword}}</u></i>"</h1>
+                  <p>Total Results: <i>453</i></p>
+                  <hr>
+              </div>
+          </div>
+          <div class="row">
+              {% if results %}
+                {% for el in results %}
+                <div class="col-sm-3">
+                    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+                        <div class="card">
+                          <img src="{{el.preview_image.url}}" alt="book img" class="verticalSlidersImg">
+                          <h2>{{el.name}}</h2>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+              {% else %}
+              <div class="row">
+                  <div class="col-sm-12 text-center">
+                      <img src="{% static 'images/brokenRobot.png' %}" class="errorimg">
+                      <h1>No Results Found! "{{keyword}}"</h1>
+                      <h3>Try Again!</h3>
+                  </div>
+              </div>
+              {% endif %}
+
+        </div>
+    </div>              {% endblock %}

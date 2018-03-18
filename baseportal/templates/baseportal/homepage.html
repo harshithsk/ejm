@@ -1,0 +1,116 @@
+{% extends  'base.html' %}
+{% load static %}
+
+            {% block title %}Nitte University | E-Journals {% endblock %}
+
+
+	{% block content %}
+
+  <!-- START - CONTENT -->
+  <div class="content-x">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <div id="my-slider" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                          <li data-target="#my-slider" data-slide-to="0" class="active"></li>
+                          <li data-target="#my-slider" data-slide-to="1"></li>
+                      </ol>
+                      <div class="carousel-inner" role="listbox">
+                          <div class="item active">
+                              <img src="{% static 'images/slidePic2.jpeg' %}" alt="image one" />
+                              <div class="carousel-caption">
+                                  <!-- CAPTION GOES HERE -->
+                              </div>
+                          </div>
+                          <div class="item">
+                              <img src="{% static 'images/slidePic3.jpeg' %}" alt="image one" />
+                              <div class="carousel-caption">
+                                  <!-- CAPTION GOES HERE -->
+                              </div>
+                          </div>
+                      </div>
+                      <a class="left carousel-control" href="#my-slider" role="button" data-slid="prev">
+                          <span aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                          <img src="{% static 'images/left.png' %}" class="left-x">
+                      </a>
+                      <a class="right carousel-control" href="#my-slider" role="button" data-slid="next">
+                          <span aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                          <img src="{% static 'images/right.png' %}" class="right-x">
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="featureBox-x row">
+              <a href="{% url 'paperauthor:addpaper' %}">
+              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+                  <img src="{% static 'images/contract-big.png' %}" class="high-menu-x"/>
+                    <h1>Submit Your Paper</h1>
+              </div>
+              </a>
+              <a href="{% url 'paperreviewer:portal' %}">
+              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+                  <img src="{% static 'images/review-big.png' %}" class="high-menu-x"/>
+                  <h1>Review Others Paper</h1>
+              </div>
+              </a>
+              <a href="{% url 'baseportal:track' %}">
+              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+                  <img src="{% static 'images/route-big.png' %}" class="high-menu-x"/>
+                  <h1>Track your Paper Now</h1>
+              </div>
+              </a>
+          </div>
+
+            <!-- END - SLIDESHOW -->
+            <div class="row">
+                <div class="col-md-8">
+                    <h1><u>Previous Journals</u></h1>
+                    <div id="my-sliderOne" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#my-sliderOne" data-slide-to="0" class="active"></li>
+                            <li data-target="#my-sliderOne" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              {% for el in journals %}
+                                <div class="col-sm-4">
+                                    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+                                        <div class="card">
+                                          <img src="{{el.preview_image.url}}" alt="book img" class="verticalSlidersImg">
+                                          <h2>{{el.name}}</h2>
+                                          <p>{{el.published_date}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#my-sliderOne" role="button" data-slid="prev">
+                            <span aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                            <img src="{% static 'images/left.png' %}" class="left-x">
+                        </a>
+                        <a class="right carousel-control" href="#my-sliderOne" role="button" data-slid="next">
+                            <span aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                            <img src="{% static 'images/right.png' %}" class="right-x">
+                        </a>
+                    </div>
+                </div>
+                <div class="counter-x col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading-x panel-heading counter-text" >TOTAL</div>
+                        <div class="panel-body">
+                            <p class="counter-text" >Authors : {{authors.count}}</p>
+                            <p class="counter-text">Journals : {{journals.count}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+</div>
+	{% endblock %}

@@ -1,3 +1,9 @@
+db.sqlite3
+.project
+.directory
+.pydevproject
+settings_secret.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

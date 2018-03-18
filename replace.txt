@@ -1,0 +1,1 @@
+%s/\(\(style\|scripts\|images\)\/.*.\(css\|js\|png\|ico\)\)/\{\% static '\1' %\}/ 

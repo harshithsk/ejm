@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block styles %}
+<link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/portalReviewerStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+{% endblock %}
+{% block content %}
+
+
+<!-- START - CONTENT -->
+<div class="content-x">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Hello! <b><i>{{user}}</i></b></h1>
+                <h5>Role: <b><i>Reviewer</i></b></h5>
+                <hr>
+            </div>
+
+            <div class="col-sm-12">
+                <h1><b>Under Review</b></h1>
+                <table class="blue-grey lighten-4 table table-striped">
+                    <thead>
+
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Paper Title</th>
+                            <th>Author</th>
+                            <th width="30">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      	{% for el in papers %}
+                            {% if not el.paperreview %}
+                            <tr>
+                                <td>{{el.id}}</td>
+                                <td>{{el.title}}</td>
+                                <td>{{el.review_status}}</td>
+                                <td><a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}" class="btn btn-primary">Review</a></td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-12">
+                <h1><b>Review Requests</b></h1>
+                <table class="blue-grey lighten-4 table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Paper Title</th>
+                            <th width="30">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for el in reviewrequests %}
+                      {% if el.status is None %}
+                        <tr>
+                            <td>{{el.id}}</td>
+                            <td>{{el}}</td>
+                            <td><a href="{% url 'paperreviewer:reviewrequest' paperid=el.id %}" class="btn btn-success">Accept/Reject</a></td>
+                        </tr>
+                        			{% endif %}
+                        	{% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-12">
+                <h1><b>Papers Reviewed</b></h1>
+                <table class="blue-grey lighten-4 table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Paper Title</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      	{% for el in papers %}
+                            {% if el.paperreview %}
+                            <tr>
+                                <td>{{el.id}}</td>
+                                <td><a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">{{el.title}}</a></td>
+                                <td>{{el.review_status}}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+		<!--{% for el in reviewrequests %}
+		<tr>
+			<td class="button">
+				{% if el.status is None %}
+				<a class="fix" href="{% url 'paperreviewer:reviewrequest' paperid=el.id %}">
+					{{el}}
+				</a>
+				{% else %}
+					{{el}}
+				{% endif %}
+			</td>
+			<td>
+				{{el.get_status_display}}
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>-->
+{% endblock %}

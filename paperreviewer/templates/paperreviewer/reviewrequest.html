@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/reviewRequestStyle.css' %}">
+  {% endblock %}
+{% block content %}
+
+<div class="content-x text-center" style="min-height: 45%">
+    <img src="images/left-blue.png" class="back-button">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2>Do you want to Review this Paper :  {{paper}} ?</h2>
+                <hr>
+            </div>
+        </div>
+
+            <div class="col-sm-5 text-center opt-x-left">
+              <form method="post">
+                {% csrf_token %}
+                {% render_field form.status class="comboBoxOne" %}{{ form.status.errors }}
+                <button type="submit" name="btn btn-info" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+    </div>
+</div>
+{% endblock %}
