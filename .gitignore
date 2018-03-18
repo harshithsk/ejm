@@ -1,4 +1,6 @@
 db.sqlite3
+protected/*
+media/*
 .idea/*
 .project
 .directory

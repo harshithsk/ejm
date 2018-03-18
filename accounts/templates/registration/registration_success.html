@@ -2,11 +2,33 @@
 {% load static %}
 {% block content %}
 
-  <div class="inside">
-    Successfully registred!
-    Please check the email to activate or contact admin!
+<!-- START - CONTENT -->
+<img src="{% static 'images/left-blue.png' %}" class="back-button">
+<div class="content-x text-center" style="min-height: 45%">
 
-    to continue -> Go to  <a href="{% url 'baseportal:homepage' %}"><span>HOME</span></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="{% static 'images/checked.png' %}" class="model-header-x">
+                <h2>Sccessfully Regsitered!</h2>
+                <p>Please, Check your Email Inbox to Activate your Account, Or Contact the Administrator</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 text-center opt-x-left">
+                <img class="model-opt-img-x" src="{% static 'images/login-color.png' %}">
+                <a href="{% url 'accounts:login' %}"><h1>Login</h1></a>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-5 text-center opt-x-right">
+                <img class="model-opt-img-x" src="{% static 'images/favicon.ico' %}">
+                <a href="{% url 'baseportal:homepage' %}"><h1>Home</h1></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-  </div>
+
 {% endblock %}
