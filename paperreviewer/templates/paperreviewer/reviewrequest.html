@@ -1,29 +1,234 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load widget_tweaks %}
-{% block styles %}
-  <link rel="stylesheet" href="{% static 'css/reviewRequestStyle.css' %}">
-  {% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<div class="content-x text-center" style="min-height: 45%">
-    <img src="images/left-blue.png" class="back-button">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2>Do you want to Review this Paper :  {{paper}} ?</h2>
-                <hr>
+        <title>Nitte University | EJournal</title>
+	   <meta charset="UTF-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <link rel="icon" type="image/png" href="images/favicon.ico"/>
+
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="css/mdb.min.css">
+        <link rel="stylesheet" href="css/indexStyle.css">
+        <link rel="stylesheet" href="css/reviewRequestStyle.css"><!--CUSTOM STYLESHEET HRE-->
+        <link rel="stylesheet" href="css/passwordResetStyle.css"><!--CUSTOM STYLESHEET HRE-->
+        <link rel="stylesheet" href="css/footerStyle.css">
+        
+    </head>
+    <body>
+
+
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <!-- Close Sidebar Button -->
+            <div id="dismiss">
+                <img src="images/switch-arrows.png" class="side-nav-icon">
+            </div>
+
+                <div class="sidebar-header">
+                    <h3><a href="index.html"><img src="images/logo.png" class="logo-x"></a></h3>
+                    <strong><a href="index.html"><img src="images/favicon.ico" class="logo-min-x"></a></strong>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="index.html">
+                            <!--<i class="glyphicon glyphicon-home"></i>-->
+                            <img src="images/nitteUniversityIcon.ico" class="side-nav-icon">
+                            Home
+                        </a>
+                        <!--
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">Home 1</a></li>
+                            <li><a href="#">Home 2</a></li>
+                            <li><a href="#">Home 3</a></li>
+                        </ul>
+                        -->
+                    </li>
+                    <li>
+                        <a href="register.html">
+                            <img src="images/note.png" class="side-nav-icon">
+                            Register
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <img src="images/login.png" class="side-nav-icon">
+                            Login
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="track.html">
+                            <img src="images/route.png" class="side-nav-icon">
+                            Track
+                        </a>
+                    </li>
+                    <li>
+                        <a href="aboutus.html">
+                            <img src="images/about-us.png" class="side-nav-icon">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="editorialteam.html">
+                            <img src="images/meeting.png" class="side-nav-icon">
+                            Editorial Team
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled CTAs">
+                    <li><a href="#" class="download">Guidlines for Author</a></li>
+                    <li><a href="#" class="article">Guidlines for Reviewer</a></li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+               <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <p class="counter-text txt-white">NMAMIT Research Journal</p>
+                            <!-- <p class="txt-white txt1">EJournal > Home</p> -->
+                        </div>
+                        <div class="navbar-right">
+                            <ul class="list-unstyled">
+                                <li class="dropdown pull-right">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                            <img src="images/man.png" class="profile-x navbar-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="profile.html" class="profile-opt-x"><img src="images/profile.png" class="margin-right-x">Profile</a></li>
+                                        <li><a href="#" class="profile-opt-x"><img src="images/settings-cog.png" class="margin-right-x">Settings</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="login.html" class="profile-opt-x"><img src="images/login2.png" class="margin-right-x">Login</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form class="search-x navbar-form navbar-right" action="">
+                            <div class="md-form mt-0">
+                                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                                <i class="fa fa-search text-white ml-3" aria-hidden="true">
+                                    <a href="#"><img type="submit" src="images/searchBlack.png" class="side-nav-search"></a>
+                                </i>
+                            </div>
+                        </form>                   
+                    </div>
+                </nav>
+                
+                <!-- START - CONTENT -->
+                <img src="images/left-blue.png" class="back-button">
+                <div class="content-x text-center" style="min-height: 45%">
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <h2>Do you want to Review this Paper?</h2>
+                                <p>You can <u>Accept</u> or <u>Reject</u> this paper, We expect to Accept this paper from ur side.</p>
+                                <hr>
+                            </div>
+                        </div>
+                         <form class="text-center">
+                             <h3>Please provide us details</h3>
+                            <div class="row row-x">
+                                <div class="col-xs-12">
+                                    <label>Category</label>
+                                    <div class="md-form" style="margin-left: 160px;margin-right: 160px;">
+                                            <select class="comboBoxOne">
+                                                <option value="" disabled selected>Choose your option</option>
+                                                <option value="1">Art</option>
+                                                <option value="2">Technology</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-x">
+                               <div class="col-xs-12">
+                                    <div class="margin-x mt-4">
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>     
+                </div>
+                
+            <!-- START - FOOTER -->
+            <div class="footer-distributed">
+                <div class="footer-left">
+				    <img src="images/logo.png" class="logo-x">
+				        <p class="footer-links">
+					       <a href="index.html">Home</a>
+					       |
+					       <a href="register.html">Register</a>
+					       |
+					       <a href="track.html">Track</a>
+                           |
+                           <a href="login.html">Login</a>
+					       |
+					       <a href="aboutus.html">About Us</a>
+                           |
+					       <a href="editorialteam.html">Editorial Team</a>
+				        </p>
+				        <p class="footer-company-name">Nitte University &copy; 2017</p>
+			     </div>
+			     <div class="footer-center">
+				    <div>
+					   <i class="fa fa-map-marker"><img src="images/placeholder.png" class="footer-icon"></i>
+					   <p><span>Deralkatte, Mangalore</span> Karnataka, India - 574110</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-phone"><img src="images/phone-receiver.png" class="footer-icon"></i>
+					   <p>+91 987 654 3212</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-envelope"><img src="images/envelope.png"></i>
+					   <p><a href="mailto:nitte@nmamit.in">nitte@nmamit.in</a></p>
+				    </div>
+			     </div>
+			     <div class="footer-right">
+				    <p class="footer-company-about">
+					   <span>About the University</span>
+					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
+				    </p>
+				    <div class="footer-icons">
+					   <a href="#"><i class="fa fa-facebook"><img src="images/facebook-logo.png"/></i></a>
+					   <a href="#"><i class="fa fa-twitter"><img src="images/twitter.png"/></i></a>
+					   <a href="#"><i class="fa fa-linkedin"><img src="images/linked-in.png"/></i></a>
+				    </div>
+			     </div>
+            </div>
+            <!-- START - FOOTER -->
+
+                <!-- END - CONTENT -->
             </div>
         </div>
 
-            <div class="col-sm-5 text-center opt-x-left">
-              <form method="post">
-                {% csrf_token %}
-                {% render_field form.status class="comboBoxOne" %}{{ form.status.errors }}
-                <button type="submit" name="btn btn-info" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
 
-    </div>
-</div>
-{% endblock %}
+
+
+        <!-- jQuery CDN -->
+         <script src="js/jquery.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="js/bootstrap.min.js"></script>
+         <script type="text/javascript" src="js/mdb.min.js"></script>
+        
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse,#dismiss, .overlay').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+    </body>
+</html>
