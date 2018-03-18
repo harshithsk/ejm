@@ -5,6 +5,7 @@ media/*
 .project
 .directory
 .pydevproject
+myprojectenv/
 settings_secret.py
 
 # Byte-compiled / optimized / DLL files
