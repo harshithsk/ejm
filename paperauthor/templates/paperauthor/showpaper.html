@@ -2,32 +2,64 @@
 {% load static %}
 {% block path %} HOME &gt; VIEW PAPER {%endblock %}
 {% block content %}
-<div class="inside">
+<!-- START - CONTENT -->
+<div class="content-x" style="height: 50%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><u>Name of the Paper <b> {{paper}}</b></u></h1>
+                <hr>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="trackIdText" class="trackIdCopy" value="{{paper.track_id}}">
+            </div>
+            <div class="col-sm-2">
+                <button id="trackIdCopy" onclick="copyToClipboard()" class="btn btn-primary">Copy</button>
+            </div>
+            {% if paper.reviewer is None %}
+            <div class="col-sm-12">
+                <h4>Status: </h4><p>No Reviewer Assigned</p>
+            </div>
+            {% elif paper.review_complete is False %}
+            <div class="col-sm-12">
+                <h4>Status: </h4><p>Review in Process</p>
+            </div>
+            {% else %}
+            <div class="col-sm-12">
+                <h4>Status: </h4></h4><p>{{paper.review_status}}</p>
+            </div>
+            <div class="col-sm-8">
+                <h3>Comments to Author</h3>
+                <p>{{paper.paperreview.final_comments_to_author}}</p>
+            </div>
+            <div class="col-sm-12">
+              <a class="btn btn-info" href="{% url 'paperauthor:annotate' %}?file={% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Open in E-Document</a>
+                <a class="btn btn-info" href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Download</a>
 
-    <h1 class="welcomeName"> Paper: <b> {{paper}}</b></h1>
-    <!--<p>Resubmission: {{paper.is_resubmission}}</p>-->
-    <p class="welcomeName"><b>Track id : </b>{{paper.track_id}}<button>Copy</button></p><br>
-    {% if paper.reviewer is None %}
-      <h3 class="welcomeName">Reviewer Not Assigned. Contact Admin.</h3>
-    {% elif paper.review_complete is False %}
-      <h3 class="welcomeName">Paper not yet reviewed</h3>
-    {% else %}
-      <h3 class="welcomeName"> Status: {{paper.review_status}}</h3>
-     <h3 class="welcomeName"> File Name:   {{paper.upload}} </h3>
-       <h3 class="welcomeName"><b>Suggestion by Editorial Team : - </b></h3><br> <p class="welcomeName">{{paper.paperreview.final_comments_to_author}}</p><br><br>
-      <p class="welcomeName"><a class="button" href="{% url 'paperauthor:annotate' %}?file={% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Open in E-Document</a>
-        <a class="button" href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">Download</a>
-    {% endif %}
-    {% if paper.is_resubmission %}
-      <a class="button" href="{% url 'paperauthor:downloadsuggestedcorrections' paperslug=paper.slug %}">
-        Suggested Correction
-      </a>
-      <a class="button" href="{% url 'paperauthor:downloadperformedcorrections' paperslug=paper.slug %}">
-        Performed Correction
-      </a>
-    {% endif %}
-    {% if paper.is_resubmittable %}
-      <a class="button" href="{% url 'paperauthor:resubmitpaper' paperslug=paper.slug %}">Resubmit</a>
-    {% endif %}</p><br>
+            </div>
+            {% endif %}
+            {% if paper.is_resubmission %}
+            <div class="col-sm-12">
+              <a class="btn btn-info" href="{% url 'paperauthor:downloadsuggestedcorrections' paperslug=paper.slug %}">
+                Suggested Correction
+              </a>
+              <a class="btn btn-info" href="{% url 'paperauthor:downloadperformedcorrections' paperslug=paper.slug %}">
+                Performed Correction
+              </a>
+            </div>
+            {% endif %}
+            {% if paper.is_resubmittable %}
+              <a class="btn btn-info" href="{% url 'paperauthor:resubmitpaper' paperslug=paper.slug %}">Resubmit</a>
+            {% endif %}
+        </div>
+    </div>
 </div>
+<script>
+    function copyToClipboard() {
+      document.getElementById("trackIdText").select();
+      document.execCommand("Copy");
+      alert("Copied");
+    }
+</script>
+
 {% endblock %}

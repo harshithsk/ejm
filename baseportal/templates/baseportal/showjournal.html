@@ -6,19 +6,23 @@
 {% endblock %}
 {% block content %}
 <!-- START - CONTENT -->
-<div class="viewPaperBox">
-    <div class="viewPaperBoxBody">
-        <div class="viewPaperBoxLeftData">
-            <img src="{% get_media_prefix %}{{journal.preview_image}}" alt="{{journal.name}}"/>
-        </div>
-        <div  class="viewPaperBoxRightData">
-            <p class="viewPaperBoxTitle">{{journal.name}}</p>
-            <p class="viewPaperBoxAuthor">ABXX YZ</p>
-            <p class="viewPaperBoxDate">{{journal.published_date}}</p>
-            <p class="viewPaperBoxDescription">{{journal.description}}</p>
-            <p style="margin-top: 10px;"><a class="buttonRed" href="{% get_media_prefix %}{{journal.upload}}">Download</a></p>
+<div class="content-x" style="height: 50%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <img src="{% get_media_prefix %}{{journal.preview_image}}" class="showJImage">
+            </div>
+            <div class="col-sm-7">
+                <h1>{{journal.name}</h1>
+                <hr>
+                <h3>Description</h3>
+                <p>{{journal.description}}</p>
+                <h3>Summary</h3>
+                <p>{{journal.published_date}}</p>
+
+                <a href="{% get_media_prefix %}{{journal.upload}}" class="btn btn-danger">Download</a>
+            </div>
         </div>
     </div>
 </div>
-<!-- END - CONTENT -->
 {% endblock %}

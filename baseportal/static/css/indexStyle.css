@@ -490,3 +490,27 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before{
 .model-header-x{
     width: 160px;
 }
+
+.showJImage{
+    width: 400px;
+    height: 500px;
+}
+
+.trackIdCopy{
+    background-color: #FFFFFF;
+    border: #ced4da 0px solid;
+    height: 40px;
+    border-bottom: #ced4da 2px solid;
+    color: #ced4da;
+    width: 100%;
+}
+
+.tree-download-x{
+    text-decoration: none;
+    background-color: inherit;
+    size: 0.5em;
+}
+
+.tree-download-x:hover{
+    text-decoration: underline;
+}
