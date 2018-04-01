@@ -1,24 +1,53 @@
 {% extends  'base.html' %}
 {% load static %}
 {% block styles %}
-  <link rel="stylesheet" href={% static 'style/searchResultBoxStyle.css' %}>
+
+  <link rel="stylesheet" href={% static 'css/treeView.css' %}>
 {% endblock %}
 	{% block content %}
-  <div class="content-x">
+
+  <!-- START - CONTENT -->
+  <div class="content-x" style="height: 50%;">
       <div class="container">
           <div class="row">
-{% for volume in volumes %}
-<div class="col-sm-3">
-    <a href="{% url 'baseportal:showvolume' volumeid=volume.id %}">
-      {{volume}}
-    </a>
-      {% for journal in volume.publishedjournal_set.all %}
-          <a href="{% url 'baseportal:showjournal' journalslug=journal.slug %}">{{journal}}</a>
 
-        </div>
-</div>
-{% endfor %}
-{% endfor %}
+              <div class="col-sm-7">
+                  <h1><u>NMAM Research Volumes</u></h1>
+                  <hr>
+                  <div class="col-sm-7">
+                      <div class="tree">
+                        {% for volume in volumes %}
+                          <ul>
+                              <li>
+                                  <span><i class="icon-calendar">{{volume}}</i><!-- <a href="{% url 'baseportal:showvolume' volumeid=volume.id %}"> </a>--></span>
+                                  {% for journal in volume.publishedjournal_set.all %}
 
-        </div>
-    </div>              {% endblock %}
+
+
+                                  <ul>
+                                      <li>
+                                          <span class="badge badge-warning"><i class="icon-minus-sign"></i> {{journal}}</span>
+                                            <a href="{% url 'baseportal:showjournal' journalslug=journal.slug %}" class="tree-download-x"><h5>View</h5></a>
+                                      </li>
+
+                                  </ul>
+
+                                  {% endfor %}
+
+                              </li>
+                          </ul>
+                            {% endfor %}
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-5">
+                  <img src="{% static 'images/ff.png' %}" class="showJImage">
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src={% static 'js/treeView.js' %}></script>
+{% endblock %}
