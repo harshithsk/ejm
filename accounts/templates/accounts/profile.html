@@ -60,8 +60,8 @@
 
                                 </li>
                               
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Submitted</strong></span> {{user.paper_set.count}}</li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Reviewed</strong></span> {{user..count}}</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Submitted</strong></span> {{user.paper_set.count|default:"-"}}</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Reviewed</strong></span> {{user.reviewpaper.count|default:"-"}}</li>
                             </ul>
                         </div>
                         <!--/col-3-->
