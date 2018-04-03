@@ -49,7 +49,7 @@
                             <!--left col-->
                             <ul class="list-group">
                                 <li class="list-group-item text-muted" contenteditable="false">Profile</li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> 2.13.2014</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> {{user.date_joined|date:"M d, Y"}}</li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class=""><a href="{% url 'accounts:password_change' %}" ><img src="{% static 'images/editPencil.png' %}"></strong></span>Change Password</a></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> {{user.username}}</li>
                               <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span> Author</li>
