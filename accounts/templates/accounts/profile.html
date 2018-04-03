@@ -52,7 +52,7 @@
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> {{user.date_joined|date:"M d, Y"}}</li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class=""><a href="{% url 'accounts:password_change' %}" ><img src="{% static 'images/editPencil.png' %}"></strong></span>Change Password</a></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> {{user.username}}</li>
-                              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span> Author</li>
+                              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> {{user.email|default:"-"}}</li>
                             </ul>
 
                             <ul class="list-group">
@@ -61,7 +61,7 @@
                                 </li>
                               
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Submitted</strong></span> {{user.paper_set.count}}</li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Reviewed</strong></span> {{user.reviewpaper.count}}</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Reviewed</strong></span> {{user..count}}</li>
                             </ul>
                         </div>
                         <!--/col-3-->
