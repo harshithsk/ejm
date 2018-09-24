@@ -1,5 +1,6 @@
 {% extends  'base.html' %}
 {% load static %}
+{% block title %} Logout Successfully | NMAMIT Annual Research Journal  {% endblock %}
 {% block content %}
 <div class="content-x text-center" style="min-height: 45%">
 
@@ -7,21 +8,21 @@
 				<div class="row">
 						<div class="col-sm-12 text-center">
 								<img src="{% static 'images/exit.png' %}" class="model-header-x">
-								<h2>Sccessfully Logged Out</h2>
+								<h2>Successfully Logged Out</h2>
 								<p>Thank you for stopping by.</p>
 								<hr>
 						</div>
 				</div>
 				<div class="row">
 						<div class="col-sm-5 text-center opt-x-left">
-								<img class="model-opt-img-x" src="{% static 'images/login-color.png' %}">
-								<a href="{% url 'accounts:login' %}"><h1>Login</h1></a>
+
+								<a href="{% url 'accounts:login' %}"><img class="model-opt-img-x" src="{% static 'images/login-color.png' %}"><h1>Login</h1></a>
 						</div>
 						<div class="col-sm-2">
 						</div>
 						<div class="col-sm-5 text-center opt-x-right">
-								<img class="model-opt-img-x" src="{% static 'images/favicon.ico' %}">
-								<a href="{% url 'baseportal:homepage' %}"><h1>Home</h1></a>
+
+								<a href="{% url 'baseportal:homepage' %}">	<img class="model-opt-img-x" src="{% static 'images/favicon.ico' %}"><h1>Home</h1></a>
 						</div>
 				</div>
 		</div>

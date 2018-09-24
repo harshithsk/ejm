@@ -563,7 +563,7 @@ function initAnnotator() {
 
       app = new annotator.App()
       .include(annotator.ui.main,{element: document.getElementById("viewerContainer")})
-      .include(annotator.storage.http, {prefix: 'http://localhost:8000/api', headers:{"X-CSRFToken":csrf}})
+      .include(annotator.storage.http, {prefix: 'http://research.nmamit.in/api', headers:{"X-CSRFToken":csrf}})
       .include(pageUri);
 
       app.start();

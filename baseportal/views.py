@@ -4,6 +4,7 @@ from django.views.generic.base import View
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from paperauthor.models import Paper
 from baseportal.models import PublishedJournal, Volume
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -83,3 +84,7 @@ class RulesReviewerView(View):
 class EditorialTeamView(View):
     def get(self, request):
         return render(request, "baseportal/editorialteam.html")
+
+class VideoView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, "baseportal/video.html")

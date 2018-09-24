@@ -1,8 +1,6 @@
 {% extends  'base.html' %}
 {% load static %}
-{% block styles %}
-  <link rel="stylesheet" href={% static 'style/searchResultBoxStyle.css' %}>
-{% endblock %}
+{% block title %} Search results for {{keyword}} | NMAM Institute of Technology Research Journal  {% endblock %}
 	{% block content %}
   <div class="content-x">
       <div class="container">

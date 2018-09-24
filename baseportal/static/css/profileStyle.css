@@ -1,3 +1,11 @@
 .img-circle{
     border: black 1px solid;
 }
+
+.panel-default>.panel-heading{
+    background-color: #aeb7ad;
+}
+
+.btn-blue{
+    background-color: #3367d6;
+}

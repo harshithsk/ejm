@@ -7,16 +7,64 @@
 <link rel="stylesheet" href="{% static 'css/aboutusStyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
 {% endblock %}
-{% block title %} NMAM Institute of Technology Research Journal | About Us {% endblock %}
+{% block title %} Rules to reviewer | NMAM Institute of Technology Research Journal  {% endblock %}
 
 {% block content %}
-<div class="content-x" style="height: 50%;">
+<div class="content-x">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <h1><u>Guidlines for Reviewer</u></h1>
         <hr>
-      </div>
+            <h2>  How to conduct a review </h2>
+            <h4> Before you accept or decline an invitation to review, consider the following questions: </h4>
+            <ul>
+              <li>Does the article match your area of expertise? Only accept if you feel you can provide a high quality review.</li>
+              <li>Do you have a potential conflict of interest? Disclose this to the editor when you respond.</li>
+              <li>Do you have time? Reviewing can be a lot of work – before you commit, make sure you can meet the deadline. </li>
+              <li>Finally: Educate yourself on the peer review process through the free <a href="{% url 'baseportal:video' %}"> NMAMIT Annual Research Portal</a></li>
+            </ul>
+            <p>Respond to the invitation as soon as you can – delay in your decision slows down the review process, whether you agree to review or not. If you decline the invitation, provide suggestions for alternative reviewers.</p>
+
+            <div>
+              <h2>Before you start</h2>
+              <p>If you accept, you must treat the materials you receive as confidential documents. This means you can’t share them with anyone without prior authorization from the editor. Since peer review is confidential, you also must not share information about the review with anyone without permission from the editors and authors.</p>
+              <p>First read the article and then take a break from it, giving you time to think. Consider the article from your own perspective. When you sit down to write the review, make sure you know what the journal is looking for, and have a copy of any specific reviewing criteria you need to consider.</p>
+              <br>
+              <p>Authors may add research data, including data visualizations, to their submission to enable readers to interact and engage more closely with their research after publication. Please be aware that links to data might be present in the submission files. Manuscripts may also contain database identifiers or accession numbers (e.g. genes) in relation to our database linking program. These items should also receive your attention during the peer review process.</p>
+            </div>
+            <div>
+              <h2>Your review report</h2>
+              <p>Your review will help the editor decide whether or not to publish the article. Giving your overall opinion and general observations of the article is essential. Your comments should be courteous and constructive, and should not include any personal remarks or personal details including your name.</p>
+              <p>Providing insight into any deficiencies is important. You should explain and support your judgement so that both editors and authors are able to fully understand the reasoning behind your comments. You should indicate whether your comments are your own opinion or are reflected by the data.</p>
+            </div>
+            <div>
+              <h2>Checklist</h2>
+              <ul>
+                <li>Summarize the article in a short paragraph. This shows the editor you have read and understood the research.</li>
+                <li>Give your main impressions of the article, including whether it is novel and interesting, whether it has a sufficient impact and adds to the knowledge base.</li>
+                <li>Point out any journal-specific points – does it adhere to the NMAMIT Annual Research journal’s standards?</li>
+                <li>Give specific comments and suggestions, including about layout and format, title, abstract, introduction, graphical abstracts and/or highlights, method, statistical errors, results, conclusion/discussion, language and references.</li>
+                <li>If you suspect plagiarism, fraud or have other ethical concerns, raise your suspicions with the editor, providing as much detail as possible.</li>
+                <li>Unconscious bias can lead us to make questionable decisions which impact negatively on the academic publishing process. Read further to find out more about this important subject and to view resources on how to identify and tackle bias.</li>
+                <li>According to guidelines, reviewers must treat any manuscripts they are asked to review as confidential documents. Since peer review is confidential, they must not share the review or information about the review with anyone without the agreement of the editors and authors involved. This applies both during and after the publication process.</li>
+                <li>Any suggestion that the author includes citations to reviewers’ (or their associates’) work must be for genuine scientific reasons and not with the intention of increasing reviewers’ citation counts or enhancing the visibility of reviewers’ work (or that of their associates).</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Your recommendation</h2>
+              <p>When you make a recommendation, it is worth considering the categories the editor most likely uses for classifying the article:</p>
+                <ul>
+                  <li>Reject (explain reason in report)</li>
+                  <li>Accept without revision</li>
+                  <li>Revise – either major or minor (explain the revision that is required, and indicate to the editor whether or not you would be happy to review the revised article)</li>
+                </ul>
+            </div>
+            <div>
+              <h2>The final decision</h2>
+              <p>The editor ultimately decides whether to accept or reject the article. Elsevier plays no part in this decision. The editor will weigh all views and may call for a third opinion or ask the author for a revised paper before making a decision. The online editorial system provides reviewers with a notification of the final decision, if the journal has opted in to this function. If this is not applicable for your journal, you can contact the editor to find out whether the article was accepted or rejected.</p>
+            </div>
+        </div>
     </div>
   </div>
 </div>

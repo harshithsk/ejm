@@ -1,6 +1,15 @@
-Review Complete
-{{paper.id}}
-{{paper.title}}
+Dear {{user}}
+
+You're Manuscript {{paper.title}} (ID {{paper.id}}) Review Completed.
+
 Review is as follows
 {{paperreview.final_comments_to_author}}
 {{visiturl}}
+
+
+Sincerly,
+Administrator
+NMAMIT Annual Research Journal,
+NMAM Institute of Technology, Nitte
+Email: nmamit.arj@gmail.com
+

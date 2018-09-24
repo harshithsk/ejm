@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Review the Manuscript {{paper}}| NMAMIT Annual Research Journal  {% endblock %}
 {%block styles %}
         <link rel="stylesheet" href="{% static 'css/reviewRequestStyle.css' %}"><!--CUSTOM STYLESHEET HRE-->
         <link rel="stylesheet" href="{% static 'css/passwordResetStyle.css' %}"><!--CUSTOM STYLESHEET HRE-->
         {% endblock %}
         {% block content %}
       <!-- START - CONTENT -->
-                <img src="% static 'images/left-blue.png' %}" class="back-button">
                 <div class="content-x text-center" style="min-height: 45%">
 
                     <div class="container">
@@ -23,15 +23,6 @@
                                 <div class="col-xs-12">
                                   {% csrf_token %}
                                   {{form}}
-                                  <!--
-                                    <div class="md-form" style="margin-left: 160px;margin-right: 160px;">
-                                            <select class="comboBoxOne">
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="1">Art</option>
-                                                <option value="2">Technology</option>
-                                            </select>
-                                    </div>
-                                  -->
                                 </div>
                             </div>
                             <div class="row row-x">

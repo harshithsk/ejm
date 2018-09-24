@@ -27,7 +27,9 @@ def send_add_paper_email(request, paper):
     message = render_to_string("email/addpaper.txt", {"paper": paper, "visiturl": visiturl})
     editor_email = User.objects.get(is_superuser=True).email
     send_mail(subject, message, settings.ADMIN_EMAIL, [editor_email])
-
+    visiturl = request.build_absolute_uri(reverse("paperauthor:showpaper", args=[paper.slug]))
+    message = render_to_string("email/addpaperauthor.txt", {"paper": paper, "visiturl": visiturl})
+    send_mail(subject, message, settings.ADMIN_EMAIL, [paper.author.email])
 
 # Create your views here.
 class AuthorPortalView(IsAuthorMixin, LoginRequiredMixin, View):
@@ -62,7 +64,7 @@ class ResubmitPaperView(IsAuthorMixin, LoginRequiredMixin, View):
         paper = Paper.objects.get(slug=paperslug)
         if (paper.author != request.user) or not paper.is_resubmittable():
             raise PermissionDenied
-        paperinitial = model_to_dict(paper, fields=('title', 'abstract', 'category'))
+        paperinitial = model_to_dict(paper, fields=('title', 'abstract', 'category','all_authors'))
         form = [
             PaperResubmissionForm(initial=paperinitial),
             ResubmissionForm()

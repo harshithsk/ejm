@@ -1,64 +1,50 @@
 {% extends  'base.html' %}
 {% load static %}
 
-            {% block title %}Nitte University | E-Journals {% endblock %}
+            {% block title %}NMAMIT Annual Research Journal  {% endblock %}
 
 
-	{% block content %}
 
+  {% block styles %}
+  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
+  <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+  <link rel="stylesheet" href="{% static 'css/sliderStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slideshowStyle.css' %}">
+  {% endblock %}
+  {% block content %}
   <!-- START - CONTENT -->
   <div class="content-x">
       <div class="container">
           <div class="row">
-              <div class="col-sm-12">
-                  <div id="my-slider" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                          <li data-target="#my-slider" data-slide-to="0" class="active"></li>
-                          <li data-target="#my-slider" data-slide-to="1"></li>
-                      </ol>
-                      <div class="carousel-inner" role="listbox">
-                          <div class="item active">
-                              <img src="{% static 'images/slidePic2.jpeg' %}" alt="image one" />
-                              <div class="carousel-caption">
-                                  <!-- CAPTION GOES HERE -->
-                              </div>
-                          </div>
-                          <div class="item">
-                              <img src="{% static 'images/slidePic3.jpeg' %}" alt="image one" />
-                              <div class="carousel-caption">
-                                  <!-- CAPTION GOES HERE -->
-                              </div>
-                          </div>
-                      </div>
-                      <a class="left carousel-control" href="#my-slider" role="button" data-slid="prev">
-                          <span aria-hidden="true"></span>
-                          <span class="sr-only"></span>
-                          <img src="{% static 'images/left.png' %}" class="left-x">
-                      </a>
-                      <a class="right carousel-control" href="#my-slider" role="button" data-slid="next">
-                          <span aria-hidden="true"></span>
-                          <span class="sr-only"></span>
-                          <img src="{% static 'images/right.png' %}" class="right-x">
-                      </a>
+            <div class="col-sm-12">
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides fade" src="{% static 'images/1.jpg' %}" style="height: 500px;width:100%">
+                    <img class="mySlides fade" src="{% static 'images/2.jpg' %}" style="height: 500px;width:100%">
+                    <img class="mySlides fade" src="{% static 'images/3.jpg' %}" style="height: 500px;width:100%">
+                    <img class="mySlides fade" src="{% static 'images/4.jpg' %}" style="height: 500px;width:100%">
+
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                   </div>
-              </div>
+            </div>
           </div>
 
           <div class="featureBox-x row">
               <a href="{% url 'paperauthor:addpaper' %}">
-              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+              <div class="col-lg-3 well-x col-lg-push-1">
                   <img src="{% static 'images/contract-big.png' %}" class="high-menu-x"/>
                     <h1>Submit Your Paper</h1>
               </div>
               </a>
               <a href="{% url 'paperreviewer:portal' %}">
-              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+              <div class="col-lg-3 well-x col-lg-push-1">
                   <img src="{% static 'images/review-big.png' %}" class="high-menu-x"/>
                   <h1>Review Others Paper</h1>
               </div>
               </a>
               <a href="{% url 'baseportal:track' %}">
-              <div class="col-lg-3 col-md-1 well-x col-lg-push-1">
+              <div class="col-lg-3 well-x col-lg-push-1">
                   <img src="{% static 'images/route-big.png' %}" class="high-menu-x"/>
                   <h1>Track your Paper Now</h1>
               </div>
@@ -69,37 +55,25 @@
             <div class="row">
                 <div class="col-md-8">
                     <h1><u>Previous Journals</u></h1>
-                    <div id="my-sliderOne" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#my-sliderOne" data-slide-to="0" class="active"></li>
-                            <li data-target="#my-sliderOne" data-slide-to="1"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                              {% for el in journals %}
-                                <div class="col-sm-4">
-                                    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
-                                        <div class="card">
-                                          <img src="{{el.preview_image.url}}" alt="book img" class="verticalSlidersImg">
-                                          <h2>{{el.name}}</h2>
-                                          <p>{{el.published_date}}</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% endfor %}
+                    <div class="contain-y">
+                        <div class="row-y">
+                          <div class="row__inner">
+                        {% for el in journals %}
+                            <div class="tile">
+                                <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+                                  <div class="tile__media card">
+                                    <div>
+                                      <img src="{{el.preview_image.url}}" alt="{{el.preview_image.url}}" class="verticalSlidersImg">
+                                    </div>
+                                    <div>{{el.name}}</div>
+                                    <div>{{el.published_date}}</div>
+                                  </div>
+                                </a>
                             </div>
+                            {% endfor %}
+                          </div>
                         </div>
-                        <a class="left carousel-control" href="#my-sliderOne" role="button" data-slid="prev">
-                            <span aria-hidden="true"></span>
-                            <span class="sr-only"></span>
-                            <img src="{% static 'images/left.png' %}" class="left-x">
-                        </a>
-                        <a class="right carousel-control" href="#my-sliderOne" role="button" data-slid="next">
-                            <span aria-hidden="true"></span>
-                            <span class="sr-only"></span>
-                            <img src="{% static 'images/right.png' %}" class="right-x">
-                        </a>
-                    </div>
+                      </div>
                 </div>
                 <div class="counter-x col-md-4">
                     <div class="panel panel-default">
@@ -110,7 +84,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="counter-x col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading-x panel-heading counter-text" >Archives</div>
+                        <div class="panel-body">
+                            <a href="{% url 'baseportal:listvolume' %}"> Click here for Archives  </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 </div>
 </div>
+
+         <script type="text/javascript" src="{% static 'js/slideshow.js' %}"></script>
+         <script>
+             setInterval(function(){ plusDivs(1); }, 3000);
+         </script>
+
+
+
 	{% endblock %}

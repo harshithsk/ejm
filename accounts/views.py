@@ -6,7 +6,8 @@ from django.template.loader import render_to_string
 from django.views.generic.base import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.forms import RegistrationForm
-
+from paperauthor.models import Paper
+from baseportal.models import PublishedJournal
 
 def send_user_register_email(request, user):
     subject = "Registered User"
@@ -21,7 +22,9 @@ def send_user_register_email(request, user):
 # Create your views here.
 class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, "accounts/profile.html")
+        a=Paper.objects.filter(author=request.user)
+        b=PublishedJournal.objects.all()[:3]
+        return render(request, "accounts/profile.html", {"a":a, "b":b})
 
 class RegisterView(View):
     def get(self, request):

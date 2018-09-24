@@ -1,10 +1,21 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 {% load static %}
 <html>
 	<head>
     <!-- Required meta tags -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="nmamit,journal,volume,nitte,annual,coding,editor,software,webdesign,html,resources" />
+    <meta name="author" content="Mr. Harshit S K , Mr. Alfaf Shaikh , Mr. Amardhruva N Prabhu" />
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="3 month">
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="NMAMIT Annual Research Journal" />
+		<meta property="og:description" content="Submit Review Publish Research Manuscript" />
+		<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+		<link rel='dns-prefetch' href='//nmamit.nitte.edu.in' />
+		<link rel='dns-prefetch' href='//nmamit.in' />
 		<link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
 
 		<title>{% block title %}{% endblock %}</title>
@@ -28,7 +39,7 @@
 
 		<div class="wrapper">
 				<!-- Sidebar Holder -->
-				<nav id="sidebar">
+				<nav id="sidebar" class="active">
 						<!-- Close Sidebar Button -->
 				<div id="dismiss">
 						<img src="{% static 'images/switch-arrows.png' %}" class="side-nav-icon">
@@ -85,17 +96,20 @@
 												About Us
 										</a>
 								</li>
+
 								<li>
 										<a href="{% url 'baseportal:editorialteam' %}">
 												<img src="{% static 'images/meeting.png' %}" class="side-nav-icon">
 												Editorial Team
 										</a>
 								</li>
+								<li><a href="{% url 'baseportal:rulesauthor' %}" class="download">Guidelines for Author</a></li>
+								<li><a href="{% url 'baseportal:rulesreviewer' %}" class="article">Guidelines for Reviewer</a></li>
+								<li><a href="{% url 'baseportal:video' %}" class="download">Tutorials to use Web Portal</a></li>
 						</ul>
 
 						<ul class="list-unstyled CTAs">
-								<li><a href="{% url 'baseportal:rulesauthor' %}" class="download">Guidlines for Author</a></li>
-								<li><a href="{% url 'baseportal:rulesreviewer' %}" class="article">Guidlines for Reviewer</a></li>
+
 						</ul>
 				</nav>
 
@@ -104,7 +118,7 @@
 					 <nav class="navbar navbar-inverse">
 								<div class="container-fluid">
 										<div class="navbar-header">
-												<p class="counter-text txt-white">NMAMIT Research Journal</p>
+												<p class="counter-text txt-white">NMAMIT Annual Research Journal</p>
 										</div>
 										<div class="navbar-right">
 												<ul class="list-unstyled">
@@ -130,9 +144,10 @@
 
 										<form class="search-x navbar-form navbar-right" method='get' action="{% url 'baseportal:search' %}">
 												<div class="md-form mt-0">
-														<input class="form-control" type="text" placeholder="Search" aria-label="Search" name="q">
+														<input class="form-control" type="text" placeholder="Search" aria-label="Search" name="q" required>
 														<i class="fa fa-search text-white ml-3" aria-hidden="true">
-																<a href="#"><img name="q" type="submit" src="{% static 'images/searchBlack.png' %}" class="side-nav-search" Required></a>
+
+																		<button type="submit" style="border: 0px solid #2d5ccl; background-color: #2d5ccl"><img src="{% static 'images/searchBlack.png' %}" class="side-nav-search"></button>
 														</i>
 												</div>
 										</form>
@@ -154,36 +169,44 @@
 					       <a href="{% url 'baseportal:track' %}">Track</a>
                 |
 					       <a href="{% url 'baseportal:aboutus' %}">About Us</a>
+								 |
+								 <a href="http://nmamit.nitte.edu.in/privacy.php">Privacy Policy</a>
+								 |
+								 <a href="http://nmamit.nitte.edu.in/legal.php">Legal</a>
 				        </p>
-				        <p class="footer-company-name">Nitte University &copy; 2015-18</p>
+				        <p class="footer-company-name">NMAM Institute Of Technology, Nitte &copy; 2015-18</p>
 			     </div>
 					 <div class="footer-center">
  					 <div>
  						<i class="fa fa-map-marker"><img src="{% static 'images/placeholder.png' %}" class="footer-icon"></i>
- 						<p><span>Deralkatte, Mangalore</span> Karnataka, India - 574110</p>
+ 						<p><span>Nitte, Udupi</span> Karnataka, India - 574110</p>
  					 </div>
  					 <div>
  						<i class="fa fa-phone"><img src="{% static 'images/phone-receiver.png' %}" class="footer-icon"></i>
- 						<p>+91 987 654 3212</p>
+ 						<p>+91-8258-281263</p>
  					 </div>
  					 <div>
 						 <i class="fa fa-envelope"><img src="{% static 'images/envelope.png' %}"></i>
- 						<p><a href="mailto:nitte@nmamit.in">nitte@nmamit.in</a></p>
+ 						<p><a href="mailto:nmamit.arj@gmail.com">nmamit.arj@gmail.com</a></p>
  					 </div>
  					</div>
  					<div class="footer-right">
  					 <p class="footer-company-about">
  						<span>About the University</span>
- 						Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
+						NMAM Institute of Technology
+						An Autonomous Institution Under VTU, Belagavi
+						(A Unit of Nitte Education Trust)
+						www.nitte.edu.in/nmamit
  					 </p>
  					 <div class="footer-icons">
- 						<a href="#"><i class="fa fa-facebook"><img src="{% static 'images/facebook-logo.png' %}"/></i></a>
- 						<a href="#"><i class="fa fa-twitter"><img src="{% static 'images/twitter.png' %}"/></i></a>
- 						<a href="#"><i class="fa fa-linkedin"><img src="{% static 'images/linked-in.png' %}"/></i></a>
+ 						<a href="https://www.facebook.com/NITTEedu"><i class="fa fa-facebook"><img src="{% static 'images/facebook-logo.png' %}"/></i></a>
+ 						<a href="https://twitter.com/aboutnitte"><i class="fa fa-twitter"><img src="{% static 'images/twitter.png' %}"/></i></a>
+ 						<a href="https://www.youtube.com/channel/UCNln_L2YkP-QCFLfIDumNZQ"><i class="fa fa-youtube"><img src="{% static 'images/linked-in.png' %}"/></i></a>
  					 </div>
  					</div>
+
  					 </div>
-            <!-- START - FOOTER -->
+					 	<p style="text-align: center; color: white; background-color: black; font-size: 10px;"> Design and Developed by Mr. Amardhruva N Prabhu ; Mr. Alfaf A. Shaikh and Mr. Harshit S K with Co-ordinated by Prof. Raghunandan K R </p>
         </div>
         <!-- END - MAIN CONTENT BOX -->
 				<!-- jQuery CDN -->
@@ -191,15 +214,15 @@
 				 <!-- Bootstrap Js CDN -->
 				 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 				 <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-
-
 				 <script type="text/javascript">
-						 $(document).ready(function () {
-							  $('#sidebar').toggleClass('active');
-								 $('#sidebarCollapse,#dismiss, .overlay'). on('click', function () {
-										 $('#sidebar').toggleClass('active');
-								 });
-						 });
+							$(document).ready(function () {
+									$('#sidebarCollapse,#dismiss, .overlay').on('click', function () {
+											$('#sidebar').toggleClass('active');
+									});
+							});
 				 </script>
+
+
+
 	</body>
 </html>

@@ -1,6 +1,11 @@
-New Paper Added
-Paper: {{paper.title}}
+Dear Administrator,
+
+New Manuscript is Added.
+Manuscript: {{paper.title}}
 ID: {{paper.id}}
 Author: {{paper.author}}
 View Paper Here {{visiturl}}
-Please Assign Reviewer
+
+Please Assign Reviewer to continue the process
+
+Sent by Web Application

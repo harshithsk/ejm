@@ -5,13 +5,18 @@
 <link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/footerStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="{% static 'css/sliderStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/slideshowStyle.css' %}">
 {% endblock %}
+{% block title %} User Dashboard | NMAMIT Annual Research Journal  {% endblock %}
 {% block content %}
 <div class="content-x" style="height: 50%;">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1><u>Profile</u></h1>
+                <h2><u>Dashboard</u></h2>
                 <hr>
             </div>
         </div>
@@ -19,8 +24,9 @@
             <div class="col-sm-12">
                 <div class="container target">
                     <div class="row">
+                       <h5 class="">Dear {{user.username}},</h5>
                         <div class="col-sm-10">
-                             <h1 class="">Dear {{user.username}},</h1>
+
                              {% if user.is_superuser %}
 
                                <a class="btn btn-info" href="{% url 'admin:index' %}">Admin Portal</a>
@@ -59,7 +65,7 @@
                                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i>
 
                                 </li>
-                              
+
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Submitted</strong></span> {{user.paper_set.count|default:"-"}}</li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Papers Reviewed</strong></span> {{user.reviewpaper.count|default:"-"}}</li>
                             </ul>
@@ -67,55 +73,44 @@
                         <!--/col-3-->
                         <div class="col-sm-9" style="" contenteditable="false">
                             <div class="panel panel-default target">
-                                <div class="panel-heading" contenteditable="false">Papers I Own</div>
+                                <div class="panel-heading" contenteditable="false">Recent Activity by {{user.username}}</div>
                                 <div class="panel-body">
-                                  <div class="row">
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
-                                        <div class="caption">
-                                            <h3>
-                                                Rover
-                                            </h3>
-                                            <p>
-                                                Cocker Spaniel who loves treats.
-                                            </p>
-                                            <p>
-                                            </p>
-                                        </div>
+                                <div class="row">
+                                {% if user|has_group:"author" %}
+                                
+                                  {% for el in a %}
+
+                                    <div class="col-md-4">
+                                      <div class="tile">
+                                          <a href="{% url 'paperauthor:showpaper' paperslug=el.slug %}">
+                                            <div class="tile__media card">
+                                              <div>
+                                                <img src="{{el.preview_image.url}}" alt="{{el.title}}" class="verticalSlidersImg">
+                                              </div>
+
+                                              <div>{{el.name}}</div>
+                                              <div>{{el.published_date}}</div>
+                                            </div>
+                                          </a>
+                                      </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
-                                        <div class="caption">
-                                            <h3>
-                                                Marmaduke
-                                            </h3>
-                                            <p>
-                                                Is just another friendly dog.
-                                                asdsad
-                                            </p>
-                                            <p>
-                                            </p>
+                                    {% endfor %}
+
+                                    {% endif %}
+                                    {% if user|has_group:"reviewer" %}
+                                    {% for el in b %}
+                                      <div class="col-md-4">
+                                        <div class="tile">
+                                            <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+                                              <div class="tile__media card">
+                                                <div>{{el.name}}</div>
+                                                <div>{{el.published_date}}</div>
+                                              </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <img alt="300x200" src="{% static 'images/ff.png' %}">
-                                        <div class="caption">
-                                            <h3>
-                                                Rocky
-                                            </h3>
-                                            <p>
-                                                Loves catnip and naps. Not fond of children.
-                                            </p>
-                                            <p>
-                                            </p>
-                                        </div>
-                                </div>
-                            </div>
+                                      </div>
+                                      {% endfor %}
+                                      {% endif %}
                             </div>
                         </div>
                         </div>

@@ -1,0 +1,19 @@
+.vplayer-x{
+    width: 100%;
+    height: 460px;
+    padding: 10px;
+}
+
+.vthumbnail-x{
+    width: 60px;
+    height: 55px;
+}
+.vlistr-x{
+    list-style-type: none;
+    width: 100%;
+}
+
+.vtext{
+    margin-right: 50%;
+    margin-bottom:8px; 
+}

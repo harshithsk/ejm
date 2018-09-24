@@ -32,8 +32,9 @@ class ReviewerEmail(models.Model):
 class Paper(models.Model):
     author=models.ForeignKey(User, on_delete=models.CASCADE,
                              limit_choices_to={'groups__name': "author"})
-    title=models.CharField(max_length=50)
-    abstract=models.TextField(max_length=1000, blank=True)
+    all_authors=models.TextField(blank=True, null=True)
+    title=models.CharField(max_length=500)
+    abstract=models.TextField(max_length=8000, blank=True)
     category=models.ForeignKey(Category, on_delete=models.CASCADE)
     keywords=models.ManyToManyField(Keyword, blank=True)
     upload=models.FileField(storage=private_storage,

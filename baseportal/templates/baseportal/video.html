@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load has_group %}
+{%block styles %}
+<link rel="stylesheet" href="{% static 'css/vcard.css' %}">
+<link rel="stylesheet" href="{% static 'css/sliderStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/videoPortalStyle.css' %}">
+{% endblock %}
+{% block title %} Video Tutorials for {{user}} | NMAMIT Annual Research Journal  {% endblock %}
+{% block content %}
+<!-- START - CONTENT -->
+<div class="content-x">
+    <div class="container">
+      {% if user.is_superuser %}
+        <div class="row">
+            <div class="col-lg-12">
+              <h3> Activate a New User & User permissions , passwords </h3>
+                <video class="vplayer-x" controls>
+                    <source src="{% static 'video/admin-1.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-lg-12">
+              <h3> Review Requesting to Completing Review process </h3>
+                <video class="vplayer-x" controls>
+                    <source src="{% static 'video/admin-2.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-lg-12">
+              <h3> Adding Categories,Keywords and Publishing a new Manuscript </h3>
+                <video class="vplayer-x" controls>
+                    <source src="{% static 'video/admin-3.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        {% endif %}
+        {% if user|has_group:"author" %}
+
+        <div class="row">
+            <div class="col-lg-12">
+              <h3> Submitting a New Manuscript </h3>
+                <video class="vplayer-x" controls>
+                    <source src="{% static 'video/author.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        {% endif %}
+        {% if user|has_group:"reviewer" %}
+
+        <div class="row">
+            <div class="col-lg-12">
+              <h3> Carrying out a new Review process (Annotation Explained..) </h3>
+                <video class="vplayer-x" controls>
+                    <source src="{% static 'video/reviewer.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+    {% endblock %}

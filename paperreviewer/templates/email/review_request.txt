@@ -1,4 +1,13 @@
-You have been selected as reviewer.
-Visit {{visiturl}} to accept or reject the request.
-Paper: {{paper}}
-ID: {{paper.id}}
+Dear {{user.username}}
+
+You have been requested as reviewer for the Manuscript "{{paper}}" with reference ID "{{paper.id}}".
+Visit {{visiturl}} to accept or reject the request. 
+You are please to inform your status within a week
+
+
+
+Sincerely,
+
+Administrator,
+Team NMAMIT Annual Research Journal
+

@@ -5,12 +5,12 @@ from paperauthor.models import Paper, PaperResubmission
 class PaperForm(ModelForm):
     class Meta:
         model = Paper
-        fields = ('title', 'abstract', 'category', 'upload', 'keywords')
+        fields = ('title', 'all_authors', 'abstract', 'category', 'upload', 'keywords')
 
 class PaperResubmissionForm(ModelForm):
     class Meta:
         model = Paper
-        fields = ('title', 'abstract', 'upload')
+        fields = ('title', 'all_authors', 'abstract', 'upload')
     def __init__(self, *args, **kwargs):
         super(PaperResubmissionForm, self).__init__(*args,**kwargs)
         self.fields["title"].disabled=True

@@ -1,3 +1,13 @@
+Dear {{user.username}},
+Greetings Of the Day,
+Welcome to NMAMIT Annnual Research Journal.
 You have been selected as reviewer by the admin. Good luck
 Paper Title: {{paper.title}}
 Visit {{visiturl}} to review.
+
+
+
+Sincerely,
+
+Administrator,
+Team NMAMIT Annual Research Journal

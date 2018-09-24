@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls.conf import path
 from baseportal.views import HomePageView, TrackView, AboutUsView, ShowJournalView, SearchJournal, ListVolumeView, \
-    ShowVolumeView, RulesAuthorView, RulesReviewerView, EditorialTeamView
+    ShowVolumeView, RulesAuthorView, RulesReviewerView, EditorialTeamView, VideoView
 
 app_name='baseportal'
 
@@ -30,4 +30,5 @@ urlpatterns = [
     path('rules/author', RulesAuthorView.as_view(), name='rulesauthor'),
     path('rules/reviewer', RulesReviewerView.as_view(), name='rulesreviewer'),
     path('editorial', EditorialTeamView.as_view(), name='editorialteam'),
+    path('video', VideoView.as_view(), name='video'),
 ]

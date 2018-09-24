@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 {% load crispy_forms_tags %}
+{% block title %}Resubmit Manuscript | NMAMIT Annual Research Journal  {% endblock %}
 
 {% block content %}
-<div class="inside">
-<div class="submitContentBox">
+
+<div class="content-x">
+		<div class="container">
 	<form method="post" enctype='multipart/form-data'>
 		{% csrf_token %}
 		{{ form.0|crispy }}

@@ -1,5 +1,12 @@
+Attention Administrator,
+
 Reviewer Completed Review
 Paper: {{paper.title}}
 ID: {{paper.id}}
 Review: {{paperreview.}}
-Visit {{visiturl}}
+
+Please Visit {{visiturl}} to continue the further process.
+
+
+
+Sent by Web Application

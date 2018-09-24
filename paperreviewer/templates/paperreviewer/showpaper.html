@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %}Manuscript: {{paper}}| NMAMIT Annual Research Journal  {% endblock %}
 
 {% block content %}
 <!-- START - CONTENT -->
@@ -18,7 +18,7 @@
                 <h4>Abstract : </h4>
             </div>
             <div class="col-sm-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a dictum orci, nec imperdiet ligula. Sed egestas eu ante eu mollis. Sed non dapibus turpis. Sed finibus nulla ac nunc ultrices, ac vulputate metus tempor. Fusce sed metus ipsum. Cras vel pharetra dolor. Nam vehicula aliquam elementum. Suspendisse imperdiet risus nec lorem commodo, nec consectetur nunc convallis. Curabitur bibendum semper porttitor. Fusce efficitur commodo nulla, eu congue nulla sagittis sit amet. Etiam nec urna ac lectus pulvinar porttitor sed et lorem. Mauris vel velit sem. Aenean sit amet tellus elit. Quisque interdum tincidunt mi, eget suscipit nibh vestibulum in. Praesent vel metus augue.</p>
+                <p>{{paper.abstract}}</p>
             </div>
         </div>
         <div class="row">

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/registerStyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/addPaperStyle.css' %}">
 {% endblock %}
+{% block title %} New Manuscript | NMAMIT Annual Research Journal  {% endblock %}
 {% block content %}
 <!-- START - SUBMIT FORM-->
 <div class="content-x">
@@ -40,7 +41,7 @@
 						<div class="col-xs-8 row-x">
 								<div class="textarea-x md-form">
 										<i class="fa fa-user prefix grey-text"></i>
-										<p><b>Keywords</b></p>
+										<p><b>Keywords (Hold control for multiple selection)</b></p>
 										{% render_field form.keywords rows="5"  id="materialFormRegisterNameEx" class="sdd form-control" data-role="tagsinput" %}{{ form.keywords.errors }}
 								</div>
 						</div>
@@ -55,10 +56,15 @@
 										</div>
 								</div>
 						</div>
-
+						<div class="col-xs-8 row-x">
+								<div class="md-form">
+										{% render_field form.all_authors id="textareaBasic" class="form-control md-textarea" rows="3" %}{{ form.all_authors.errors }}
+										<label for="textareaBasic">Other Author details (Full Name and Email Separated with Comma Eg: John Doe, john@example.com; Eva Joe, eva@example.com)</label>
+								</div>
+						</div>
 						<div class="col-xs-8 row-x">
 								<div class="margin-x mt-4">
-								<input type="submit" class="btn btn-primary" value="SUBMIT Paper">
+								<input type="submit" class="btn btn-primary" value="SUBMIT Manuscript">
 								<input type="reset" class="btn btn-danger" value="RESET Fields">
 								</div>
 								{{form.non_field_errors}}

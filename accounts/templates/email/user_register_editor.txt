@@ -1,4 +1,5 @@
 {% load has_group %}
+Dear Administrator,
 A user with username {{user}} has registered.
 Visit admin interface to authorise the user.
 
@@ -8,3 +9,6 @@ Type: Reviewer
 {% if user|has_group:"author" %}
 Type: Author
 {% endif %}
+
+Sent by Web Application
+

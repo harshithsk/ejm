@@ -1,13 +1,12 @@
  {% extends 'base.html' %}
 {% load static %}
-
+{% block title %} Author Portal | NMAMIT Annual Research Journal  {% endblock %}
 {% block content %}
 <div class="content-x">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Hello! <b><i>{{user.username}}</i></b></h1>
-                <h5>Role: <b><i>{{user.user_type}}</i></b></h5>
+                <h3>Username is : <b><i>{{user}}</i></b><br> You can submit the new manuscipts from this web portal</h3>
                 <hr>
             </div>
             <div class="col-sm-12">

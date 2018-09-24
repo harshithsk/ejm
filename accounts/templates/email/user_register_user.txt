@@ -1,9 +1,26 @@
 {% load has_group %}
 Dear {{user.username}}
-Thank You for registering. Your account will be activated soon.
+Thank You for registering to NMAMIT Annual Research Journal. 
+Your account will be activated soon. Need help? Please contact Administrator
 {% if user|has_group:"reviewer" %}
-Type: Reviewer
+You registered as: Reviewer
 {% endif %}
 {% if user|has_group:"author" %}
-Type: Author
+You registered as: Author
 {% endif %}
+
+
+Sincerely,
+
+Administrator,
+Team NMAMIT Annual Research Journal
+
+Disclaimer: This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have erroneously received this email, kindly notify the sender immediately. If you are not the intended addressee/beneficiary you should not disseminate/distribute or copy this e-mail. Please note that any views or opinions presented in this email are solely those of the author and do not necessarily represent those of the Nitte University/Nitte Education Trust. 
+
+We have taken precautions to minimize the risk of transmitting software viruses, but we advise you to carry out your own virus checks on any attachment to this message. We cannot accept liability for any loss or damage caused by software viruses.
+
+Welcome to NMAM Institute of Technology, Nitte, Udupi Dist - 574110
+Email: nmamit.arj@gmail.com
+
+
+

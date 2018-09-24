@@ -1,4 +1,7 @@
-Paper : {{paper.title}}
-ID: {{paper.id}}
-{{reviewer}} has accepted review request.
+Dear Administrator,
+
+{{reviewer}} has accepted Review Manuscript : {{paper.title}} with ID: {{paper.id}}
+
 Visit {{visiturl}}
+
+Sent by Web Application

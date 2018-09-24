@@ -1,4 +1,10 @@
-Paper : {{paper.title}}
+Dear Administrator,
+
+Following details of Manuscript Review Request declination
+Manuscript : {{paper.title}}
 ID: {{paper.id}}
 {{reviewer}} has rejected review request.
 Visit {{visiturl}}
+
+Sent by Web Application
+

@@ -7,12 +7,13 @@
 	<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
 
   {% endblock %}
+	{% block title %} Track Manuscript | NMAM Institute of Technology Annual Research Journal  {% endblock %}
 {% block content %}
 <div class="content-x">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Track Your Paper</h1>
+                <h1>Track Your Manuscript Status here</h1>
                 <hr>
             </div>
         </div>
@@ -20,7 +21,7 @@
             <div class="row">
                 <div class="col-sm-10">
                     <div class='trackSearchInput'>
-                        <input type='search' placeholder='What you tracking for?' name='id' required>
+                        <input type='search' placeholder='Please Provide ID of Manuscript' name='id' required>
                     </div>
                 </div>
                 <div class="col-sm-2">
