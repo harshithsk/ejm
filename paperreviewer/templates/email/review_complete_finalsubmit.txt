@@ -1,0 +1,18 @@
+Dear {{user}}
+
+Your Manuscript {{paper.title}} (ID {{paper.id}}) Review Completed. It has been accepted. There is one more step before the manuscript is published in the journal. You must submit the final paper as docx format to this page below.
+
+Final submission link: {{finalurl}}
+
+Review is as follows
+{{paperreview.final_comments_to_author}}
+{{visiturl}}
+
+
+Sincerly,
+Administrator
+NMAMIT Annual Research Journal,
+NMAM Institute of Technology, Nitte
+Email: nmamit.arj@gmail.com
+
+ 

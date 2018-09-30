@@ -1,5 +1,5 @@
 from django.forms.models import ModelForm
-from paperauthor.models import Paper, PaperResubmission
+from paperauthor.models import Paper, PaperResubmission, PaperFinalSubmission
 
 
 class PaperForm(ModelForm):
@@ -15,6 +15,11 @@ class PaperResubmissionForm(ModelForm):
         super(PaperResubmissionForm, self).__init__(*args,**kwargs)
         self.fields["title"].disabled=True
         #self.fields["category"].disabled=True
+
+class PaperFinalSubmissionForm(ModelForm):
+    class Meta:
+        model = PaperFinalSubmission
+        fields = ('upload',)
 
 class ResubmissionForm(ModelForm):
     class Meta:

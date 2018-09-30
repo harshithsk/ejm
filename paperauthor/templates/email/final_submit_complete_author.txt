@@ -1,0 +1,3 @@
+Dear {{paper.author}},
+Your finalsubmit is complete. Please wait for publishing.
+Paper : {{paper}}

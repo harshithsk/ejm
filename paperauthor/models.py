@@ -50,6 +50,7 @@ class Paper(models.Model):
     submission_date = models.DateField(auto_now_add=True)
 
     RESUBMIT_ALLOW=["AMI", "AMA"]
+    FINALSUBMISSION_ALLOW=["ACC"]
     def review_status(self):
         return self.paperreview.get_review_status_display()
     def is_reviewed(self):
@@ -58,9 +59,12 @@ class Paper(models.Model):
         return hasattr(self, "paperresubmission")
     def has_resubmission(self):
         return self.resubmissions_set.exists()
+    def has_finalsubmission(self):
+        return hasattr(self,"paperfinalsubmission")
     def is_resubmittable(self):
         return (not self.has_resubmission()) and (self.paperreview.review_status in self.RESUBMIT_ALLOW) and (self.review_complete)
-
+    def is_finalsubmittable(self):
+        return (not self.has_resubmission()) and (self.paperreview.review_status in self.FINALSUBMISSION_ALLOW) and (self.review_complete) and not (self.has_finalsubmission())
     def __str__(self):
         return self.title
 
@@ -71,3 +75,10 @@ class PaperResubmission(models.Model):
                              validators=[FileExtensionValidator(["pdf"])])
     performed_corrections=models.FileField(storage=private_storage,
                              validators=[FileExtensionValidator(["pdf"])])
+
+class PaperFinalSubmission(models.Model):
+    paper=models.OneToOneField(Paper, on_delete=models.CASCADE)
+    upload=models.FileField(validators=[FileExtensionValidator(["docx"])])
+    def __str__(self):
+        return self.paper.title
+    

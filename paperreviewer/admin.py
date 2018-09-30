@@ -10,8 +10,13 @@ from paperreviewer.models import PaperReview, PaperReviewRequest
 
 def send_review_complete_email(request, paper, paperreview):
     subject = "Review Completed"
-    visiturl = request.build_absolute_uri(reverse("paperreviewer:showpaper", kwargs={"paperslug": paper.slug}))
-    message = render_to_string("email/review_complete.txt",
+    visiturl = request.build_absolute_uri(reverse("paperauthor:showpaper", kwargs={"paperslug": paper.slug}))
+    if paperreview.review_status == "ACC":
+        finalurl = request.build_absolute_uri(reverse("paperauthor:finalsubmitpaper", kwargs={"paperslug": paper.slug}))
+        message = render_to_string("email/review_complete_finalsubmit.txt",
+                               {"paper": paper, "paperreview": paperreview, "visiturl": visiturl, "finalurl": finalurl})
+    else:
+        message = render_to_string("email/review_complete.txt",
                                {"paper": paper, "paperreview": paperreview, "visiturl": visiturl})
     author_email = paper.author.email
     send_mail(subject, message, settings.ADMIN_EMAIL, [author_email])

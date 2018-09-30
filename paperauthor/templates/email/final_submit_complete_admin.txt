@@ -1,0 +1,4 @@
+Dear admin,
+A users finalsubmit is complete.
+{{visiturl}}
+Paper : {{paper}}

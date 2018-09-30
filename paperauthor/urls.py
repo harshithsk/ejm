@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls.conf import path
 from paperauthor.views import AuthorPortalView, AddPaperView, ShowPaperView, \
     DownloadPaperView, AnnotateView, ResubmitPaperView, DownloadSuggestedCorrectionsView, \
-    DownloadPerformedCorrectionsView
+    DownloadPerformedCorrectionsView, PaperFinalSubmissionView
 
 app_name='paperauthor'
 
@@ -34,4 +34,6 @@ urlpatterns = [
         DownloadSuggestedCorrectionsView.as_view(), name='downloadsuggestedcorrections'),
     path('downloadperformedcorrections/<slug:paperslug>.pdf',
         DownloadPerformedCorrectionsView.as_view(), name='downloadperformedcorrections'),
+    path('finalsubmitpaper/<slug:paperslug>/',
+        PaperFinalSubmissionView.as_view(), name='finalsubmitpaper')
 ]

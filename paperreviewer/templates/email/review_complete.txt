@@ -1,6 +1,6 @@
 Dear {{user}}
 
-You're Manuscript {{paper.title}} (ID {{paper.id}}) Review Completed.
+Your Manuscript {{paper.title}} (ID {{paper.id}}) Review Completed.
 
 Review is as follows
 {{paperreview.final_comments_to_author}}

@@ -5,7 +5,7 @@ from django.forms import model_to_dict
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.views.generic.base import View
-from paperauthor.forms import PaperForm, PaperResubmissionForm, ResubmissionForm
+from paperauthor.forms import PaperForm, PaperResubmissionForm, ResubmissionForm, PaperFinalSubmissionForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from paperauthor.models import Paper
 from django.core.exceptions import PermissionDenied
@@ -29,6 +29,17 @@ def send_add_paper_email(request, paper):
     send_mail(subject, message, settings.ADMIN_EMAIL, [editor_email])
     visiturl = request.build_absolute_uri(reverse("paperauthor:showpaper", args=[paper.slug]))
     message = render_to_string("email/addpaperauthor.txt", {"paper": paper, "visiturl": visiturl})
+    send_mail(subject, message, settings.ADMIN_EMAIL, [paper.author.email])
+
+def send_final_submission_email(request, finalsubmit):
+    subject = "Final Submission of paper completed"
+    paper = finalsubmit.paper
+    visiturl = request.build_absolute_uri(reverse("admin:paperauthor_paperfinalsubmission_change", args=[finalsubmit.id]))
+    editor_email = User.objects.get(is_superuser=True).email
+    message = render_to_string("email/final_submit_complete_admin.txt", {"paper": paper, "visiturl": visiturl})
+    send_mail(subject, message, settings.ADMIN_EMAIL, [editor_email])
+    visiturl = request.build_absolute_uri(reverse("paperauthor:showpaper", args=[paper.slug]))
+    message = render_to_string("email/final_submit_complete_author.txt", {"paper": paper, "visiturl": visiturl})
     send_mail(subject, message, settings.ADMIN_EMAIL, [paper.author.email])
 
 # Create your views here.
@@ -125,6 +136,28 @@ class DownloadPerformedCorrectionsView(IsAuthorMixin, LoginRequiredMixin, View):
         if paper.author != request.user:
             raise PermissionDenied
         return sendfile(request, paper.paperresubmission.performed_corrections.path, attachment=True)
+
+class PaperFinalSubmissionView(IsAuthorMixin, LoginRequiredMixin, View):
+    def get(self, request, paperslug):
+        paper = Paper.objects.get(slug=paperslug)
+        if paper.author != request.user or not paper.is_finalsubmittable():
+            raise PermissionDenied
+        form = PaperFinalSubmissionForm()
+        return render(request, "paperauthor/finalsubmit.html",{"form":form, "paper":paper})
+    
+    def post(self, request, paperslug):
+        paper = Paper.objects.get(slug=paperslug)
+        if paper.author != request.user or not paper.is_finalsubmittable():
+            raise PermissionDenied
+        form = PaperFinalSubmissionForm(request.POST, request.FILES)
+        if form.is_valid:
+            finalsubmit = form.save(commit=False)
+            finalsubmit.paper = paper
+            finalsubmit.save()
+            send_final_submission_email(request, finalsubmit)
+            return render(request, "paperauthor/finalsubmitsuccess.html",{"paper":paper})
+        return render(request, "paperauthor/finalsubmit.html",{"form":form, "paper":paper})
+        
 
 
 class AnnotateView(IsAuthorMixin, LoginRequiredMixin, View):

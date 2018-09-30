@@ -52,6 +52,9 @@
             {% if paper.is_resubmittable %}
               <a class="btn btn-info" href="{% url 'paperauthor:resubmitpaper' paperslug=paper.slug %}">Resubmit</a>
             {% endif %}
+            {% if paper.is_finalsubmittable %}
+              <a class="btn btn-info btn-red" href="{% url 'paperauthor:finalsubmitpaper' paperslug=paper.slug %}">Complete the Submission of the paper</a>
+            {% endif %}
         </div>
     </div>
 </div>

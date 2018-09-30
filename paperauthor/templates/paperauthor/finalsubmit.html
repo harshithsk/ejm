@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="content-x">
+  <div class="container">
+    {{paper}}
+    <p>Please submit the final draft of the research paper complete with header as specified here in docx format. This paper will be published on the web portal.</p>
+    <form method="post" enctype='multipart/form-data'>
+      {% csrf_token %}
+      {{form|crispy}}
+      <input type="submit" class="btn btn-primary" value="Upload the Paper">
+    </form>
+  </div>
+</div>
+{% endblock %}
